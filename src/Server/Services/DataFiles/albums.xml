@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<albums>
+  <album name="album" id="0" userId="3">
+    <imagesData />
+  </album>
+  <album name="bb" id="2" userId="3">
+    <imagesData />
+  </album>
+  <album name="bb" id="3" userId="2">
+    <imagesData />
+  </album>
+  <album name="cc" id="4" userId="2">
+    <imagesData />
+  </album>
+  <album name="ee" id="5" userId="3">
+    <imagesData />
+  </album>
+</albums>

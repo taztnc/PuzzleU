@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload Test Client</title>
+
+<script>
+
+function loadcontent()
+{
+	
+}
+
+</script>
+</head>
+<body style="text-decoration:none" onload="loadcontent()">
+
+<form name="file_upload" action="http://localhost:8732/Design_Time_Addresses/Services/Upload/invoke" method=POST enctype="multipart/form-data">
+<input type="hidden" name="albumid" value=""> <!-- Value should be calculated by JS -->
+<br>
+<input type="file" name="file">
+<br>
+<!--
+<input type="file" name="files2">
+<br>
+<input type="file" name="files3">
+<br>
+<input type="file" name="files4">
+<br>
+<input type="file" name="files5">
+<br>
+-->
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+C:\GitSource\PuzzleU\src\Server\Services\Services\obj\Debug\ResolveAssemblyReference.cache
+C:\GitSource\PuzzleU\src\Server\Services\Services\bin\Debug\Services.dll.config
+C:\GitSource\PuzzleU\src\Server\Services\Services\bin\Debug\Services.dll
+C:\GitSource\PuzzleU\src\Server\Services\Services\bin\Debug\Services.pdb
+C:\GitSource\PuzzleU\src\Server\Services\Services\obj\Debug\Services.dll
+C:\GitSource\PuzzleU\src\Server\Services\Services\obj\Debug\Services.pdb
+C:\GitSource\PuzzleU\src\Server\Services\Services\bin\Debug\Utilities.dll
+C:\GitSource\PuzzleU\src\Server\Services\Services\bin\Debug\Utilities.pdb

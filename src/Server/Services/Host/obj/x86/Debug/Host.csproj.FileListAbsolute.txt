@@ -1,0 +1,10 @@
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Host.exe
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Host.pdb
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Services.dll
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Services.pdb
+C:\GitSource\PuzzleU\src\Server\Services\Host\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GitSource\PuzzleU\src\Server\Services\Host\obj\x86\Debug\Host.exe
+C:\GitSource\PuzzleU\src\Server\Services\Host\obj\x86\Debug\Host.pdb
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Host.exe.config
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Utilities.dll
+C:\GitSource\PuzzleU\src\Server\Services\Host\bin\Debug\Utilities.pdb

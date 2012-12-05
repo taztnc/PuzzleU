@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<users>
+  <user name="yossi" id="3">
+    <albums>
+      <album id="0" />
+      <album id="2" />
+      <album id="5" />
+    </albums>
+  </user>
+  <user name="kobi" id="2">
+    <albums>
+      <album id="3" />
+      <album id="4" />
+    </albums>
+  </user>
+  <user name="atar" id="4">
+    <albums />
+  </user>
+</users>
