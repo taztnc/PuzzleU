@@ -160,4 +160,54 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DeleteImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="albumId" type="xs:int" />
+        <xs:element minOccurs="0" name="imageName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteImageResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumImages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iAlbumID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlbumImagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAlbumImagesResult" type="xs:boolean" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="images" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element minOccurs="0" name="errorString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPuzzleData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="albumId" type="xs:int" />
+        <xs:element minOccurs="0" name="imageName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iDifficultyLevel" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPuzzleDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPuzzleDataResult" type="xs:boolean" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PuzzleUServices" minOccurs="0" name="puzzleData" nillable="true" type="q6:PuzzleData" />
+        <xs:element minOccurs="0" name="errorString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

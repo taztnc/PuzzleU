@@ -34,4 +34,33 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ImageFileData" nillable="true" type="tns:ImageFileData" />
+  <xs:complexType name="PuzzleData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ImageData" nillable="true" type="tns:ImageData" />
+      <xs:element minOccurs="0" name="PuzzlePartData" nillable="true" type="tns:ArrayOfPuzzlePartData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuzzleData" nillable="true" type="tns:PuzzleData" />
+  <xs:complexType name="ImageData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element minOccurs="0" name="URI" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageData" nillable="true" type="tns:ImageData" />
+  <xs:complexType name="ArrayOfPuzzlePartData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PuzzlePartData" nillable="true" type="tns:PuzzlePartData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPuzzlePartData" nillable="true" type="tns:ArrayOfPuzzlePartData" />
+  <xs:complexType name="PuzzlePartData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CoordinateX" type="xs:int" />
+      <xs:element minOccurs="0" name="CoordinateY" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageData" nillable="true" type="tns:ImageData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuzzlePartData" nillable="true" type="tns:PuzzlePartData" />
 </xs:schema>

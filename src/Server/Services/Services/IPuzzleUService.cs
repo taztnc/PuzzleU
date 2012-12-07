@@ -42,16 +42,14 @@ namespace PuzzleUServices
 
         [OperationContract]
         bool AddImage(int albumId, ImageFileData imageFileData, out string errorString);
-        //[OperationContract]
-        //void DeleteImage(int iImageID);
-        //[OperationContract]
-        //int GetImageID(int iAlbumID, string sImageName); // Returns ImageID
-        //[OperationContract]
-        //List<int> GetImageIDs(int iAlbumID); // Returns List<ImageID>
+        [OperationContract]
+        bool DeleteImage(int albumId, string imageName, out string errorString);
+        [OperationContract]
+        bool GetAlbumImages(int iAlbumID, out List<string> images, out string errorString); // Returns List<Images name>
 
 
-        //[OperationContract]
-        //PuzzleData GetPuzzleData(int iImageID, int iDifficultyLevel);
+        [OperationContract]
+        bool GetPuzzleData(int albumId, string imageName, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString);
 
     }
 }

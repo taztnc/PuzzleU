@@ -242,6 +242,118 @@ namespace PuzzleUServices
             return true;
         }
 
+        public bool DeleteImage(int albumId, string imageName, out string errorString)
+        {
+            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            if (albumsDataMan == null)
+            {
+                errorString = "Failed retrieving AlbumsDataManager";
+                return false;
+            }
+
+            if (!albumsDataMan.AlbumImageExists(albumId, imageName))
+            {
+                errorString = "Image does not exists in album";
+                return false;
+            }
+
+            ImagesManager imagesMan = ImagesManager.Instance;
+            if (imagesMan == null)
+            {
+                errorString = "Failed retrieving ImagesManager";
+                return false;
+            }
+
+            if (!imagesMan.DeleteImage(albumId, imageName))
+            {
+                errorString = "Failed deleting image";
+                return false;
+            }
+
+            if (!albumsDataMan.DeleteAlbumImage(albumId, imageName, out errorString))
+                return false;
+
+            return true;
+        }
+
+        public bool GetAlbumImages(int iAlbumID, out List<string> images, out string errorString)
+        {
+            images = null;
+
+            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            if (albumsDataMan == null)
+            {
+                errorString = "Failed retrieving AlbumsDataManager";
+                return false;
+            }
+
+            if (!albumsDataMan.GetAlbumImages(iAlbumID, out images, out errorString))
+                return false;
+
+            return true;
+        }
+
+        public bool GetPuzzleData(int albumId, string imageName, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString)
+        {
+            puzzleData = null;
+            errorString = string.Empty;
+
+            puzzleData = new PuzzleData();
+
+            ImageData imageData = null;
+            if (!GetImageData(albumId, imageName, out imageData, out errorString))
+                return false;
+
+            puzzleData.ImageData = imageData;
+
+
+            List<PuzzlePartData> puzzlePartsData = null;
+            if (!GetPuzzlePartsData(albumId, imageName, iDifficultyLevel, out puzzlePartsData, out errorString))
+                return false;
+
+            puzzleData.PuzzlePartData = puzzlePartsData;
+
+            return true;
+        }
+
+        private bool GetPuzzlePartsData(int albumId, string imageName, int iDifficultyLevel, out List<PuzzlePartData> puzzlePartsData, out string errorString)
+        {
+            puzzlePartsData = new List<PuzzlePartData>();
+            errorString = string.Empty;
+
+            // kobig - Now, implement this
+
+
+            return true;
+        }
+
+        private bool GetImageData(int albumId, string imageName, out ImageData imageData, out string errorString)
+        {
+            imageData = new ImageData();
+
+            // Get image URL
+            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            if (albumsDataMan == null)
+            {
+                errorString = "Failed retrieving AlbumsDataManager";
+                return false;
+            }
+
+            string URL = string.Empty;
+            if (!albumsDataMan.GetImageURL(albumId, imageName, out URL, out errorString))
+                return false;
+
+            imageData.URI = URL;
+
+            // Get image size
+            Image image = Image.FromFile(URL);
+
+            imageData.Height = image.Height;
+            imageData.Width = image.Width;
+
+            return true;
+        }
+
         public void Save()
         {
             UsersDataManager.Instance.Save();

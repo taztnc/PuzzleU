@@ -13,3 +13,13 @@ C:\Users\Kobi.Garyani\Documents\Visual Studio 2010\Projects\ServicesClient\Servi
 C:\GitSource\PuzzleU\src\TestClient\ServicesClient\bin\Debug\ServicesClient.exe.config
 C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.exe
 C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.pdb
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\bin\Debug\ServicesClient.exe
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\bin\Debug\ServicesClient.pdb
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.FormAlbums.resources
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.FormImages.resources
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.FormUserName.resources
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.Properties.Resources.resources
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\GitSource\PuzzleU\src\TestClient\ServicesClient\obj\x86\Debug\ServicesClient.FormPuzzles.resources

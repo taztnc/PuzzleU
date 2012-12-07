@@ -60,6 +60,12 @@
     <Compile Include="FormImages.Designer.cs">
       <DependentUpon>FormImages.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPuzzles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPuzzles.Designer.cs">
+      <DependentUpon>FormPuzzles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormImages.resx">
       <DependentUpon>FormImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPuzzles.resx">
+      <DependentUpon>FormPuzzles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserName.resx">
       <DependentUpon>FormUserName.cs</DependentUpon>
@@ -115,6 +124,9 @@
     </None>
     <None Include="Service References\PuzzleUService\PuzzleUService.wsdl" />
     <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.AlbumData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.PuzzleData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.UserData.datasource">

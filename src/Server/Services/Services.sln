@@ -9,10 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataFiles", "DataFiles", "{039AB95D-6F7C-4423-B69C-DEDAD3895BF0}"
 	ProjectSection(SolutionItems) = preProject
-		DataFiles\albums.xml = DataFiles\albums.xml
-		DataFiles\users.txt = DataFiles\users.txt
 		DataFiles\users.xml = DataFiles\users.xml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostForm", "HostForm\HostForm.csproj", "{C03F35D1-EB65-433C-A7F5-8DCF1172693F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +54,16 @@ Global
 		{F19CF3AA-04D5-4290-B5C5-08185F5D9F92}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F19CF3AA-04D5-4290-B5C5-08185F5D9F92}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F19CF3AA-04D5-4290-B5C5-08185F5D9F92}.Release|x86.ActiveCfg = Release|Any CPU
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Debug|x86.ActiveCfg = Debug|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Debug|x86.Build.0 = Debug|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Release|Any CPU.ActiveCfg = Release|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Release|x86.ActiveCfg = Release|x86
+		{C03F35D1-EB65-433C-A7F5-8DCF1172693F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

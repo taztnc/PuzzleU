@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.IO;
+using System.Runtime.Serialization.Json;
 
 
 namespace PuzzleUServices
@@ -63,8 +65,7 @@ namespace PuzzleUServices
 
             get { return mPuzzlePartsData; }
             set { mPuzzlePartsData = value; }
-        }
-
+        }        
     }
 
     [DataContract]

@@ -17,7 +17,8 @@ namespace ServicesClient
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormAlbums());
             //Application.Run(new FormUserName());
-            Application.Run(new FormImages());
+            //Application.Run(new FormImages());
+            Application.Run(new FormPuzzles());
         }
     }
 }

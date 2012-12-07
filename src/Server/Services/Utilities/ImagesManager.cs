@@ -70,10 +70,7 @@ namespace Utilities
 
             try
             {
-                string path = IMAGES_FOLDER_PATH;
-                path = Path.Combine(path, string.Format("Album{0}", albumId));
-                path = Path.Combine(path, imageFileData.ImageName);
-                path = Path.ChangeExtension(path, imageFileData.ImageFormat);
+                string path = GetImagePath(albumId, imageFileData.ImageName);
 
                 url = path;
 
@@ -97,5 +94,30 @@ namespace Utilities
         }
 
         #endregion
+
+        private string GetImagePath(int albumId, string imageName)
+        {
+            string path = IMAGES_FOLDER_PATH;
+            path = Path.Combine(path, string.Format("Album{0}", albumId));
+            path = Path.Combine(path, imageName);
+
+            return path;
+        }
+
+        public bool DeleteImage(int albumId, string imageName)
+        {
+            try
+            {
+                string path = GetImagePath(albumId, imageName);
+                if (File.Exists(path))
+                    File.Delete(path);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

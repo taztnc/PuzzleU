@@ -64,6 +64,8 @@ namespace Utilities
         {
             try
             {
+                string curr = Directory.GetCurrentDirectory();
+
                 if (!File.Exists(ALBUMS_FILE_PATH))
                     return false;
 
@@ -254,5 +256,73 @@ namespace Utilities
 
 
         #endregion
+
+        public bool DeleteAlbumImage(int albumId, string imageName, out string errorString)
+        {
+            errorString = string.Empty;
+
+            if (!Albums.ContainsKey(albumId))
+            {
+                errorString = "Album does not exist";
+                return false;
+            }
+
+            Album album = Albums[albumId];
+            if (!album.ImagesData.ContainsKey(imageName))
+            {
+                errorString = "Image does not exist";
+                return false;
+            }
+
+            album.ImagesData.Remove(imageName);
+
+            return true;
+        }
+
+        public bool GetAlbumImages(int albumId, out List<string> images, out string errorString)
+        {
+            images = null;
+            errorString = string.Empty;
+
+            if (!Albums.ContainsKey(albumId))
+            {
+                errorString = "Album does not exist";
+                return false;
+            }
+
+            Album album = Albums[albumId];
+            images = new List<string>();
+            foreach (string imageName in album.ImagesData.Keys)
+            {
+                images.Add(imageName);
+            }
+
+            return true;
+        }
+
+        public bool GetImageURL(int albumId, string imageName, out string URL, out string errorString)
+        {
+            URL = string.Empty;
+            errorString = string.Empty;
+
+            if (!Albums.ContainsKey(albumId))
+            {
+                errorString = "Album does not exist";
+                return false;
+            }
+
+            Album album = Albums[albumId];
+            if (!album.ImagesData.ContainsKey(imageName))
+            {
+                errorString = "Image does not exist in album";
+                return false;
+            }
+
+            // kobig - How the hell do I make the image a part of my web site with a real URL?
+            AlbumImageData imageData = album.ImagesData[imageName];
+            URL = imageData.URL;
+
+            return true;
+        }
     }
 }
