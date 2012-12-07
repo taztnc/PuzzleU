@@ -1,8 +1,0 @@
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\bin\Debug\FileService.dll
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\bin\Debug\FileService.pdb
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb

@@ -1,5 +1,0 @@
-C:\GitSource\PuzzleU\src\Server\Services\Utilities\bin\Debug\Utilities.dll
-C:\GitSource\PuzzleU\src\Server\Services\Utilities\bin\Debug\Utilities.pdb
-C:\GitSource\PuzzleU\src\Server\Services\Utilities\obj\Debug\ResolveAssemblyReference.cache
-C:\GitSource\PuzzleU\src\Server\Services\Utilities\obj\Debug\Utilities.dll
-C:\GitSource\PuzzleU\src\Server\Services\Utilities\obj\Debug\Utilities.pdb
