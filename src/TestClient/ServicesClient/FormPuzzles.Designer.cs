@@ -63,7 +63,7 @@
             this.textBoxImageName.Name = "textBoxImageName";
             this.textBoxImageName.Size = new System.Drawing.Size(120, 20);
             this.textBoxImageName.TabIndex = 3;
-            this.textBoxImageName.Text = "alerts_icon.bmp";
+            this.textBoxImageName.Text = "yoy.jpg";
             // 
             // label3
             // 
@@ -80,7 +80,7 @@
             this.textBoxDifficultyLevel.Name = "textBoxDifficultyLevel";
             this.textBoxDifficultyLevel.Size = new System.Drawing.Size(128, 20);
             this.textBoxDifficultyLevel.TabIndex = 5;
-            this.textBoxDifficultyLevel.Text = "0";
+            this.textBoxDifficultyLevel.Text = "1";
             // 
             // label4
             // 

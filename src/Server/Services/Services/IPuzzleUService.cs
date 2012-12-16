@@ -39,14 +39,12 @@ namespace PuzzleUServices
         //           2. We can do this after we finish writing the basic operation contracts
         //           3. The parsing should be clear on what we expect in the Posted/Get message
 
-
         [OperationContract]
         bool AddImage(int albumId, ImageFileData imageFileData, out string errorString);
         [OperationContract]
         bool DeleteImage(int albumId, string imageName, out string errorString);
         [OperationContract]
         bool GetAlbumImages(int iAlbumID, out List<string> images, out string errorString); // Returns List<Images name>
-
 
         [OperationContract]
         bool GetPuzzleData(int albumId, string imageName, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString);

@@ -10,6 +10,11 @@ using System.Runtime.Serialization.Json;
 
 namespace PuzzleUServices
 {
+    public static class GlobalVars
+    {
+        public const string BASE_PATH = @"C:\GitSource\PuzzleU\src\Server\Services";
+    }
+
     [DataContract]
     public class ImageFileData
     {
@@ -71,29 +76,14 @@ namespace PuzzleUServices
     [DataContract]
     public class ImageData
     {
-        private string mURI;
         [DataMember]
-        public string URI
-        {
-            get { return mURI; }
-            set { mURI = value; }
-        }
+        public string URL { get; set; }
+     
+        [DataMember]
+        public int Width { get; set; }
 
-        private int mWidth;
         [DataMember]
-        public int Width
-        {
-            get { return mWidth; }
-            set { mWidth = value; }
-        }
-
-        private int mHeight;
-        [DataMember]
-        public int Height
-        {
-            get { return mHeight; }
-            set { mHeight = value; }
-        }
+        public int Height { get; set; }
     }
 
     [DataContract]

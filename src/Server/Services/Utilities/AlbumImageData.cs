@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Runtime.Serialization;
 
 namespace Utilities
 {
+    [DataContract]
     public class AlbumImageData
     {
         public const string IMAGE_DATA_ELEMENT_TAG = "image";
@@ -19,38 +21,15 @@ namespace Utilities
             Name = name;
             URL = url;
             AlbumId = albumId;
-        }
+        }        
 
-        public AlbumImageData(XmlElement imageElement)
-        {
-            Name = imageElement.Attributes[IMAGE_DATA_ATTRIBUTE_NAME].Value;
-            URL = imageElement.Attributes[IMAGE_DATA_ATTRIBUTE_URL].Value;
-            AlbumId = int.Parse(imageElement.Attributes[IMAGE_DATA_ATTRIBUTE_ALBUM_ID].Value);
-        }
-
+        [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
         public string URL { get; set; }
-        public int AlbumId { get; set; }
 
-        public XmlElement CreateXmlElement(ref XmlDocument doc)
-        {
-            XmlElement imageElement = doc.CreateElement(IMAGE_DATA_ELEMENT_TAG);
-
-            // Attributes
-            XmlAttribute nameAttribute = doc.CreateAttribute(IMAGE_DATA_ATTRIBUTE_NAME);
-            nameAttribute.Value = Name;
-
-            XmlAttribute urlAttribute = doc.CreateAttribute(IMAGE_DATA_ATTRIBUTE_URL);
-            urlAttribute.Value = URL;
-
-            XmlAttribute albumIdAttribute = doc.CreateAttribute(IMAGE_DATA_ATTRIBUTE_ALBUM_ID);
-            albumIdAttribute.Value = AlbumId.ToString();
-
-            imageElement.Attributes.Append(nameAttribute);
-            imageElement.Attributes.Append(urlAttribute);
-            imageElement.Attributes.Append(albumIdAttribute);
-
-            return imageElement;
-        }
+        [DataMember]
+        public int AlbumId { get; set; }        
     }
 }

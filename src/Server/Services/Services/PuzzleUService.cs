@@ -7,10 +7,14 @@ using System.Text;
 using Utilities;
 using System.IO;
 using System.Drawing;
+using System.Diagnostics;
+using System.Threading;
 
 namespace PuzzleUServices
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in both code and config file together.
+    // kobig - This is not the way to go - we currently keep a singelton service and keep the data in memory
+    //         The proper way to work is keeping a database and use a per-call instantiation 
+
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class PuzzleUService : IPuzzleUService
     {
@@ -306,7 +310,6 @@ namespace PuzzleUServices
 
             puzzleData.ImageData = imageData;
 
-
             List<PuzzlePartData> puzzlePartsData = null;
             if (!GetPuzzlePartsData(albumId, imageName, iDifficultyLevel, out puzzlePartsData, out errorString))
                 return false;
@@ -321,8 +324,19 @@ namespace PuzzleUServices
             puzzlePartsData = new List<PuzzlePartData>();
             errorString = string.Empty;
 
-            // kobig - Now, implement this
+            ImageData imageData = null;
+            if (!GetImageData(albumId, imageName, out imageData, out errorString))
+                return false;
 
+            PuzzlePartsManager puzzlePartsMan = PuzzlePartsManager.Instance;
+            if (puzzlePartsMan == null)
+            {
+                errorString = "Failed retrieving PuzzlePartsManager";
+                return false;
+            }
+
+            if (!puzzlePartsMan.GetPuzzlePartsData(imageData, iDifficultyLevel, out puzzlePartsData, out errorString))
+                return false;
 
             return true;
         }
@@ -343,7 +357,7 @@ namespace PuzzleUServices
             if (!albumsDataMan.GetImageURL(albumId, imageName, out URL, out errorString))
                 return false;
 
-            imageData.URI = URL;
+            imageData.URL = URL;
 
             // Get image size
             Image image = Image.FromFile(URL);
@@ -358,6 +372,7 @@ namespace PuzzleUServices
         {
             UsersDataManager.Instance.Save();
             AlbumsDataManager.Instance.Save();
+            PuzzlePartsManager.Instance.Save();
         }
     }
 }

@@ -286,7 +286,7 @@ namespace ServicesClient.PuzzleUService {
         private int HeightField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string URIField;
+        private string URLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int WidthField;
@@ -315,14 +315,14 @@ namespace ServicesClient.PuzzleUService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string URI {
+        public string URL {
             get {
-                return this.URIField;
+                return this.URLField;
             }
             set {
-                if ((object.ReferenceEquals(this.URIField, value) != true)) {
-                    this.URIField = value;
-                    this.RaisePropertyChanged("URI");
+                if ((object.ReferenceEquals(this.URLField, value) != true)) {
+                    this.URLField = value;
+                    this.RaisePropertyChanged("URL");
                 }
             }
         }

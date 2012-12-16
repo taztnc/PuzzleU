@@ -32,6 +32,7 @@ namespace PuzzleUHost
 
         private static ServiceHost StartServiceHost()
         {
+            
             PuzzleUService service = new PuzzleUService();
             var host = new ServiceHost(service, new Uri [] {});
             host.Open();

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml;
+using PuzzleUServices;
+using System.Runtime.Serialization.Json;
 
 namespace Utilities
 {
@@ -12,8 +14,8 @@ namespace Utilities
         #region Constants
 
         public const int NULL_USER_ID = -1;
-        public const string USERS_FILE_PATH = "DataFiles\\users.xml";
-        public const string USERS_FILE_PATH_TEMP = "DataFiles\\users_temp.xml";
+        public string USERS_FILE_PATH = Path.Combine(GlobalVars.BASE_PATH, "DataFiles\\users.json");
+        public string USERS_FILE_PATH_TEMP = Path.Combine(GlobalVars.BASE_PATH, "DataFiles\\users_temp.json");
 
         private const string USERS_ELEMENT_TAG = "users"; // root    
 
@@ -28,12 +30,7 @@ namespace Utilities
 
         #endregion
 
-        #region Singelton
-
-        public void Save()
-        {
-            WriteToFile();
-        }
+        #region Singelton        
 
         private UsersDataManager()
         {
@@ -51,7 +48,7 @@ namespace Utilities
                 if (instance == null)
                 {
                     instance = new UsersDataManager();
-                    if (!instance.ReadFromFile()) instance = null;
+                    if (!instance.Load()) instance = null;
                 }
 
                 return instance;
@@ -62,24 +59,28 @@ namespace Utilities
 
         #region Private Methods        
 
-        private bool ReadFromFile()
+        private bool Load()
         {
             try
             {
+                string currDir = Directory.GetCurrentDirectory();
+
                 if (!File.Exists(USERS_FILE_PATH))
                     return false;
 
                 Users.Clear();
                 UsersNameToIdMap.Clear();
 
-                XmlDocument doc = new XmlDocument();
-                doc.Load(USERS_FILE_PATH);
 
-                XmlNodeList userNodes = doc.DocumentElement.GetElementsByTagName(User.USER_ELEMENT_TAG);
-                foreach (XmlElement userElement in userNodes)
+                using (FileStream fileStream = new FileStream(USERS_FILE_PATH, FileMode.Open))
                 {
-                    User newUser = new User(userElement);
-                    Users.Add(newUser.ID, newUser);
+                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Dictionary<int, User>));
+                    Users = (Dictionary<int, User>)ser.ReadObject(fileStream);
+                }
+
+                foreach (KeyValuePair<int, User> userPair in Users)
+                {
+                    User newUser = userPair.Value;
                     UsersNameToIdMap.Add(newUser.Name, newUser.ID);
 
                     foreach (KeyValuePair<int, UserAlbum> albumPair in newUser.Albums)
@@ -99,40 +100,28 @@ namespace Utilities
             return true;
         }        
 
-        public bool WriteToFile()
+        public void Save()
         {
             try
             {
                 if (File.Exists(USERS_FILE_PATH_TEMP))
                     File.Delete(USERS_FILE_PATH_TEMP);
 
-                XmlDocument doc = new XmlDocument();
-                XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "", "");
-
-                doc.AppendChild(dec);                
-
-                XmlElement usersElement = doc.CreateElement(USERS_ELEMENT_TAG);
-                doc.AppendChild(usersElement);
-
-                foreach (KeyValuePair<int, User> userEntry in Users)
+                using (FileStream fileStream = new FileStream(USERS_FILE_PATH_TEMP, FileMode.OpenOrCreate))
                 {
-                    XmlElement userElement = userEntry.Value.CreateXmlElement(ref doc);                   
-                    usersElement.AppendChild(userElement);
+                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Dictionary<int, User>));
+                    ser.WriteObject(fileStream, Users);
                 }
-
-                doc.Save(USERS_FILE_PATH_TEMP);
 
                 if (File.Exists(USERS_FILE_PATH))
                     File.Delete(USERS_FILE_PATH);
 
                 File.Move(USERS_FILE_PATH_TEMP, USERS_FILE_PATH);
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                string s = ex.Message;
             }
-
-            return true;
         }
 
         private bool UserExists(string sUserName)

@@ -1,3 +1,0 @@
-iii;0
-aaa;1
-kobi;2

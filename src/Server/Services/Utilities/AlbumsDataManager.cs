@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Xml;
+using PuzzleUServices;
+using System.Runtime.Serialization.Json;
 
 namespace Utilities
 {
@@ -12,8 +14,8 @@ namespace Utilities
         #region Constants
 
         public const int NULL_ALBUM_ID = -1;
-        public const string ALBUMS_FILE_PATH = "DataFiles\\albums.xml";
-        public const string ALBUMS_FILE_PATH_TEMP = "DataFiles\\albums_temp.xml";
+        public string ALBUMS_FILE_PATH = Path.Combine(GlobalVars.BASE_PATH, "DataFiles\\albums.json");
+        public string ALBUMS_FILE_PATH_TEMP = Path.Combine(GlobalVars.BASE_PATH, "DataFiles\\albums_temp.json");
 
         private const string ALBUMS_ELEMENT_TAG = "albums"; // root
 
@@ -27,12 +29,7 @@ namespace Utilities
 
         #endregion
 
-        #region Singelton
-
-        public void Save()
-        {
-            WriteToFile();
-        }
+        #region Singelton        
 
         private AlbumsDataManager()
         {
@@ -49,7 +46,7 @@ namespace Utilities
                 if (instance == null)
                 {
                     instance = new AlbumsDataManager();
-                    if (!instance.ReadFromFile()) instance = null;
+                    if (!instance.Load()) instance = null;
                 }
 
                 return instance;
@@ -60,7 +57,7 @@ namespace Utilities
 
         #region Private Methods
 
-        private bool ReadFromFile()
+        private bool Load()
         {
             try
             {
@@ -72,19 +69,20 @@ namespace Utilities
                 Albums.Clear();
                 AlbumsNameToIdMap.Clear();
 
-                XmlDocument doc = new XmlDocument();
-                doc.Load(ALBUMS_FILE_PATH);
-
-                XmlNodeList albumNodes = doc.DocumentElement.GetElementsByTagName(User.ALBUM_ELEMENT_TAG);
-                foreach (XmlElement albumElement in albumNodes)
+                using (FileStream fileStream = new FileStream(ALBUMS_FILE_PATH, FileMode.Open))
                 {
-                    Album newAlbum = new Album(albumElement);
-                    Albums.Add(newAlbum.ID, newAlbum);
+                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Dictionary<int, Album>));
+                    Albums = (Dictionary<int, Album>)ser.ReadObject(fileStream);
+                }
+
+                foreach (KeyValuePair<int, Album> albumPair in Albums)
+                {
+                    Album newAlbum = albumPair.Value;
                     AlbumsNameToIdMap.Add(Album.GetAlbumKey(newAlbum.Name, newAlbum.UserId), newAlbum.ID);
 
                     if (newAlbum.ID > MaxId)
                         MaxId = newAlbum.ID;
-                }
+                }                
             }
             catch
             {
@@ -94,28 +92,18 @@ namespace Utilities
             return true;
         }
 
-        public bool WriteToFile()
+        public void Save()
         {
             try
             {
                 if (File.Exists(ALBUMS_FILE_PATH_TEMP))
                     File.Delete(ALBUMS_FILE_PATH_TEMP);
 
-                XmlDocument doc = new XmlDocument();
-                XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "", "");
-
-                doc.AppendChild(dec);
-
-                XmlElement albumsElement = doc.CreateElement(ALBUMS_ELEMENT_TAG);
-                doc.AppendChild(albumsElement);
-
-                foreach (KeyValuePair<int, Album> albumEntry in Albums)
+                using (FileStream fileStream = new FileStream(ALBUMS_FILE_PATH_TEMP, FileMode.OpenOrCreate))
                 {
-                    XmlElement albumElement = albumEntry.Value.CreateXmlElement(ref doc);
-                    albumsElement.AppendChild(albumElement);
+                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Dictionary<int, Album>));
+                    ser.WriteObject(fileStream, Albums);
                 }
-
-                doc.Save(ALBUMS_FILE_PATH_TEMP);
 
                 if (File.Exists(ALBUMS_FILE_PATH))
                     File.Delete(ALBUMS_FILE_PATH);
@@ -124,10 +112,7 @@ namespace Utilities
             }
             catch
             {
-                return false;
             }
-
-            return true;
         }
 
         private bool AlbumExists(string albumName, int userId)
@@ -318,7 +303,7 @@ namespace Utilities
                 return false;
             }
 
-            // kobig - How the hell do I make the image a part of my web site with a real URL?
+            // kobig - Give the images the URL in the website http://localhost:8000/Images/<image>
             AlbumImageData imageData = album.ImagesData[imageName];
             URL = imageData.URL;
 

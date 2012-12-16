@@ -39,22 +39,20 @@ namespace Utilities
 
         #region Methods
 
-        public bool SaveImage(int albumId, string imageName, Bitmap bmImage, out string url)
+        public bool SaveImage(int albumId, string imageName, Bitmap bm, out string url)
         {
             url = string.Empty;
 
             try
             {
-                string path = IMAGES_FOLDER_PATH;
-                path = Path.Combine(path, string.Format("Album{0}", albumId));
-                path = Path.Combine(path, imageName);
+                string path = GetImagePath(albumId, imageName);
 
                 url = path;
 
                 if (!Directory.Exists(Path.GetDirectoryName(path)))
                     Directory.CreateDirectory(Path.GetDirectoryName(path));
 
-                bmImage.Save(path);
+                bm.Save(path);
             }
             catch
             {

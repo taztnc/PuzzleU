@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataFiles", "DataFiles", "{039AB95D-6F7C-4423-B69C-DEDAD3895BF0}"
 	ProjectSection(SolutionItems) = preProject
-		DataFiles\users.xml = DataFiles\users.xml
+		DataFiles\albums.json = DataFiles\albums.json
+		DataFiles\puzzles.json = DataFiles\puzzles.json
+		DataFiles\users.json = DataFiles\users.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostForm", "HostForm\HostForm.csproj", "{C03F35D1-EB65-433C-A7F5-8DCF1172693F}"
