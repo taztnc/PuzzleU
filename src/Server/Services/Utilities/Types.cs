@@ -12,7 +12,7 @@ namespace PuzzleUServices
 {
     public static class GlobalVars
     {
-        public const string BASE_PATH = @"C:\GitSource\PuzzleU\src\Server\Services";
+        public const string BASE_PATH = @"C:\GitSource\PuzzleU\src\WebSite";
     }
 
     [DataContract]
