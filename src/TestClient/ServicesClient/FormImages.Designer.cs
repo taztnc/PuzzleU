@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxAlbumImagesAlbumID = new System.Windows.Forms.TextBox();
             this.groupBoxAlbumImages = new System.Windows.Forms.GroupBox();
+            this.buttonAlbumImagesGet = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxDeleteImageResult = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.buttonDeleteImage = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDeleteImageImageName = new System.Windows.Forms.TextBox();
-            this.buttonAlbumImagesGet = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBoxAlbumImages.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,6 +93,7 @@
             this.textBoxAddImageAlbumID.Name = "textBoxAddImageAlbumID";
             this.textBoxAddImageAlbumID.Size = new System.Drawing.Size(89, 20);
             this.textBoxAddImageAlbumID.TabIndex = 4;
+            this.textBoxAddImageAlbumID.Text = "0";
             // 
             // label2
             // 
@@ -128,6 +129,7 @@
             this.textBoxAddImageImagePath.Name = "textBoxAddImageImagePath";
             this.textBoxAddImageImagePath.Size = new System.Drawing.Size(394, 20);
             this.textBoxAddImageImagePath.TabIndex = 0;
+            this.textBoxAddImageImagePath.Text = "C:\\Temp\\yoy2.jpg";
             // 
             // listBoxAlbumImages
             // 
@@ -175,6 +177,16 @@
             this.groupBoxAlbumImages.TabIndex = 5;
             this.groupBoxAlbumImages.TabStop = false;
             this.groupBoxAlbumImages.Text = "Album Images";
+            // 
+            // buttonAlbumImagesGet
+            // 
+            this.buttonAlbumImagesGet.Location = new System.Drawing.Point(198, 17);
+            this.buttonAlbumImagesGet.Name = "buttonAlbumImagesGet";
+            this.buttonAlbumImagesGet.Size = new System.Drawing.Size(75, 23);
+            this.buttonAlbumImagesGet.TabIndex = 5;
+            this.buttonAlbumImagesGet.Text = "Get";
+            this.buttonAlbumImagesGet.UseVisualStyleBackColor = true;
+            this.buttonAlbumImagesGet.Click += new System.EventHandler(this.buttonAlbumImagesGet_Click);
             // 
             // groupBox2
             // 
@@ -249,16 +261,6 @@
             this.textBoxDeleteImageImageName.Name = "textBoxDeleteImageImageName";
             this.textBoxDeleteImageImageName.Size = new System.Drawing.Size(170, 20);
             this.textBoxDeleteImageImageName.TabIndex = 0;
-            // 
-            // buttonAlbumImagesGet
-            // 
-            this.buttonAlbumImagesGet.Location = new System.Drawing.Point(198, 17);
-            this.buttonAlbumImagesGet.Name = "buttonAlbumImagesGet";
-            this.buttonAlbumImagesGet.Size = new System.Drawing.Size(75, 23);
-            this.buttonAlbumImagesGet.TabIndex = 5;
-            this.buttonAlbumImagesGet.Text = "Get";
-            this.buttonAlbumImagesGet.UseVisualStyleBackColor = true;
-            this.buttonAlbumImagesGet.Click += new System.EventHandler(this.buttonAlbumImagesGet_Click);
             // 
             // FormImages
             // 

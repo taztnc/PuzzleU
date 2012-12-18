@@ -18,7 +18,6 @@ namespace ServicesClient
             InitializeComponent();
             UpdateUI();
 
-            textBoxAddImageImagePath.Text = @"C:\Temp\alerts_icon.bmp";
         }
 
         private void UpdateUI()
