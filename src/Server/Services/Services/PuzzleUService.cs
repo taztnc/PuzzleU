@@ -27,7 +27,7 @@ namespace PuzzleUServices
             UsersDataManager usersDataMan = UsersDataManager.Instance;
             if (usersDataMan == null)
             {
-                errorString = "Failed retrieving UsersDataManager";
+                errorString = "Failed retrieving UsersDataManager"; 
                 return false;
             }
 
