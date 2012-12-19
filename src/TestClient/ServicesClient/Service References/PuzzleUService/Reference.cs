@@ -550,4 +550,44 @@ namespace ServicesClient.PuzzleUService {
             return base.Channel.GetPuzzleData(out puzzleData, out errorString, albumId, imageName, iDifficultyLevel);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PuzzleUService.IPuzzleUWebService")]
+    public interface IPuzzleUWebService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUWebService/Singup", ReplyAction="http://tempuri.org/IPuzzleUWebService/SingupResponse")]
+        string Singup(System.IO.Stream streamContent);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IPuzzleUWebServiceChannel : ServicesClient.PuzzleUService.IPuzzleUWebService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PuzzleUWebServiceClient : System.ServiceModel.ClientBase<ServicesClient.PuzzleUService.IPuzzleUWebService>, ServicesClient.PuzzleUService.IPuzzleUWebService {
+        
+        public PuzzleUWebServiceClient() {
+        }
+        
+        public PuzzleUWebServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public PuzzleUWebServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public PuzzleUWebServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public PuzzleUWebServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public string Singup(System.IO.Stream streamContent) {
+            return base.Channel.Singup(streamContent);
+        }
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="CWTS9y7y2b6v4Jg8s9RkcypkcEk=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ONXs5KIVbw1KknArH5+jxSZ+Ap4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IPuzzleUService">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IPuzzleUService" contract="PuzzleUService.IPuzzleUService" bindingType="wsHttpBinding" address="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/" bindingConfiguration="WSHttpBinding_IPuzzleUService">
+    <endpoint name="WSHttpBinding_IPuzzleUService" contract="PuzzleUService.IPuzzleUService" bindingType="wsHttpBinding" address="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/ws" bindingConfiguration="WSHttpBinding_IPuzzleUService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/</serializedValue>
+          <serializedValue>http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/ws</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -5,6 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Drawing;
+using System.ServiceModel.Web;
+using System.IO;
+
 
 namespace PuzzleUServices
 {
@@ -12,6 +15,10 @@ namespace PuzzleUServices
     [ServiceContract]
     public interface IPuzzleUService
     {
+        // kobig - move this to the other interface ??
+        //[OperationContract, WebInvoke(Method = "POST", UriTemplate = "Signup", BodyStyle = WebMessageBodyStyle.Bare)]
+        //string Singup(Stream contents);
+
         [OperationContract]
         bool CreateUser(string sUserName, out int id, out string errorString);
         [OperationContract]

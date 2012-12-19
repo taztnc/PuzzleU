@@ -596,6 +596,7 @@
       <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PuzzleUServices" />
       <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd4" namespace="http://schemas.microsoft.com/Message" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPuzzleUService_CreateUser_InputMessage">
@@ -676,6 +677,12 @@
   <wsdl:message name="IPuzzleUService_GetPuzzleData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPuzzleDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IPuzzleUWebService_Singup_InputMessage">
+    <wsdl:part name="parameters" element="tns:Singup" />
+  </wsdl:message>
+  <wsdl:message name="IPuzzleUWebService_Singup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SingupResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPuzzleUService">
     <wsdl:operation name="CreateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IPuzzleUService/CreateUser" message="tns:IPuzzleUService_CreateUser_InputMessage" />
@@ -728,6 +735,12 @@
     <wsdl:operation name="GetPuzzleData">
       <wsdl:input wsaw:Action="http://tempuri.org/IPuzzleUService/GetPuzzleData" message="tns:IPuzzleUService_GetPuzzleData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPuzzleUService/GetPuzzleDataResponse" message="tns:IPuzzleUService_GetPuzzleData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IPuzzleUWebService">
+    <wsdl:operation name="Singup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPuzzleUWebService/Singup" message="tns:IPuzzleUWebService_Singup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPuzzleUWebService/SingupResponse" message="tns:IPuzzleUWebService_Singup_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IPuzzleUService" type="tns:IPuzzleUService">
@@ -879,9 +892,9 @@
   </wsdl:binding>
   <wsdl:service name="PuzzleUService">
     <wsdl:port name="WSHttpBinding_IPuzzleUService" binding="tns:WSHttpBinding_IPuzzleUService">
-      <soap12:address location="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/" />
+      <soap12:address location="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/ws" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/</wsa10:Address>
+        <wsa10:Address>http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/ws</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>localhost</Dns>
         </Identity>

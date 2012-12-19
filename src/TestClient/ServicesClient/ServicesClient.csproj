@@ -122,6 +122,9 @@
     <None Include="Service References\PuzzleUService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PuzzleUService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PuzzleUService\PuzzleUService.wsdl" />
     <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.AlbumData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

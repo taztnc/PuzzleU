@@ -16,7 +16,7 @@ namespace PuzzleUServices
     //         The proper way to work is keeping a database and use a per-call instantiation 
 
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class PuzzleUService : IPuzzleUService
+    public class PuzzleUService : IPuzzleUService, IPuzzleUWebService
     {
         // User Name
         public bool CreateUser(string sUserName, out int id, out string errorString)
@@ -374,5 +374,36 @@ namespace PuzzleUServices
             AlbumsDataManager.Instance.Save();
             PuzzlePartsManager.Instance.Save();
         }
+
+        #region WebInvokes
+
+
+        private byte[] ToByteArray(Stream stream)
+        {
+            byte[] buffer = new byte[32768];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                while (true)
+                {
+                    int read = stream.Read(buffer, 0, buffer.Length);
+                    if (read <= 0)
+                        return ms.ToArray();
+                    ms.Write(buffer, 0, read);
+                }
+            }
+        }
+
+        public string Singup(Stream streamContent)
+        {
+            int id = -1;
+
+            byte[] data = ToByteArray(streamContent);
+            string strContent = Encoding.UTF8.GetString(data);
+
+            return "from server";
+        }
+
+
+        #endregion
     }
 }

@@ -113,4 +113,11 @@ namespace PuzzleUServices
             set { mCoordinateY = value; }
         }
     }
+
+    [DataContract]
+    public class TestContract
+    {
+        [DataMember]
+        public string JustAString;
+    }
 }
