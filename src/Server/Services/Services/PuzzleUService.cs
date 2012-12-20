@@ -4,11 +4,12 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using Utilities;
 using System.IO;
 using System.Drawing;
 using System.Diagnostics;
 using System.Threading;
+using PuzzleU.BackEnd.DAL;
+using PuzzleU.BackEnd.ComonTypes;
 
 //Gamba
 
@@ -20,13 +21,14 @@ namespace PuzzleUServices
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class PuzzleUService : IPuzzleUService, IPuzzleUWebService
     {
+        ManagersFactory managersFactory = ManagersFactory.Create();
         // User Name
         public bool CreateUser(string sUserName, out int id, out string errorString)
         {
-            id = UsersDataManager.NULL_USER_ID;
             errorString = string.Empty;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr() ;
+            id = usersDataMan.NullUserID;
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager"; 
@@ -38,10 +40,10 @@ namespace PuzzleUServices
 
         public bool GetUserID(string sUserName, out int id, out string errorString)
         {
-            id = UsersDataManager.NULL_USER_ID;
             errorString = string.Empty;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
+            id = usersDataMan.NullUserID;
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -55,7 +57,7 @@ namespace PuzzleUServices
         {
             errorString = string.Empty;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -70,7 +72,7 @@ namespace PuzzleUServices
             albumsData = null;
             errorString = string.Empty;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -81,7 +83,7 @@ namespace PuzzleUServices
             if (!usersDataMan.GetAlbumIDs(userId, out albumIds, out errorString))
                 return false;
 
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -110,7 +112,7 @@ namespace PuzzleUServices
             usersData = null;
             errorString = string.Empty;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -136,10 +138,10 @@ namespace PuzzleUServices
         // Album
         public bool CreateAlbum(int userID, string albumName, out int albumId, out string errorString)
         {
-            albumId = AlbumsDataManager.NULL_ALBUM_ID;
             errorString = string.Empty;
 
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
+            albumId = albumsDataMan.NullAlbumId;
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -149,7 +151,7 @@ namespace PuzzleUServices
             if (!albumsDataMan.CreateAlbum(userID, albumName, out albumId, out errorString))
                 return false;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -163,7 +165,7 @@ namespace PuzzleUServices
         {
             errorString = string.Empty;
 
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -173,7 +175,7 @@ namespace PuzzleUServices
             if (!albumsDataMan.DeleteAlbum(albumId, out errorString))
                 return false;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -185,10 +187,12 @@ namespace PuzzleUServices
 
         public bool GetAlbumID(int userId, string albumName, out int albumId, out string errorString)
         {
-            albumId = AlbumsDataManager.NULL_ALBUM_ID;
+            
             errorString = string.Empty;
 
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
+            albumId = albumsDataMan.NullAlbumId;
+
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -203,7 +207,7 @@ namespace PuzzleUServices
             albumIDs = null;
             errorString = string.Empty;
 
-            UsersDataManager usersDataMan = UsersDataManager.Instance;
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
             if (usersDataMan == null)
             {
                 errorString = "Failed retrieving UsersDataManager";
@@ -215,7 +219,7 @@ namespace PuzzleUServices
 
         public bool AddImage(int albumId, ImageFileData imageFileData, out string errorString)
         {
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -228,7 +232,7 @@ namespace PuzzleUServices
                 return false;
             }
 
-            ImagesManager imagesMan = ImagesManager.Instance;
+            IImagesManager imagesMan = managersFactory.CreateImagesManager();
             if (imagesMan == null)
             {
                 errorString = "Failed retrieving ImagesManager";
@@ -250,7 +254,7 @@ namespace PuzzleUServices
 
         public bool DeleteImage(int albumId, string imageName, out string errorString)
         {
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -263,7 +267,7 @@ namespace PuzzleUServices
                 return false;
             }
 
-            ImagesManager imagesMan = ImagesManager.Instance;
+            IImagesManager imagesMan = managersFactory.CreateImagesManager();
             if (imagesMan == null)
             {
                 errorString = "Failed retrieving ImagesManager";
@@ -285,8 +289,8 @@ namespace PuzzleUServices
         public bool GetAlbumImages(int iAlbumID, out List<string> images, out string errorString)
         {
             images = null;
-
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -330,7 +334,7 @@ namespace PuzzleUServices
             if (!GetImageData(albumId, imageName, out imageData, out errorString))
                 return false;
 
-            PuzzlePartsManager puzzlePartsMan = PuzzlePartsManager.Instance;
+            IPuzzlePartsManager puzzlePartsMan = managersFactory.CreatePuzzlePartsManager();
             if (puzzlePartsMan == null)
             {
                 errorString = "Failed retrieving PuzzlePartsManager";
@@ -348,7 +352,7 @@ namespace PuzzleUServices
             imageData = new ImageData();
 
             // Get image URL
-            AlbumsDataManager albumsDataMan = AlbumsDataManager.Instance;
+            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
             if (albumsDataMan == null)
             {
                 errorString = "Failed retrieving AlbumsDataManager";
@@ -372,9 +376,9 @@ namespace PuzzleUServices
 
         public void Save()
         {
-            UsersDataManager.Instance.Save();
-            AlbumsDataManager.Instance.Save();
-            PuzzlePartsManager.Instance.Save();
+            managersFactory.CreateUsersDataManagerr().Save();
+            managersFactory.CreateAlbumsManager().Save();
+            managersFactory.CreatePuzzlePartsManager().Save();
         }
 
         #region WebInvokes
@@ -397,8 +401,6 @@ namespace PuzzleUServices
 
         public string Singup(Stream streamContent)
         {
-            int id = -1;
-
             byte[] data = ToByteArray(streamContent);
             string strContent = Encoding.UTF8.GetString(data);
 

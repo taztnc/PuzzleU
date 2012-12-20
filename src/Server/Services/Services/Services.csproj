@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\WebSite\bin\</OutputPath>
+    <OutputPath>..\..\..\WebSite\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\WebSite\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,9 +57,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
+    <ProjectReference Include="..\PuzzleU.BackEnd.CommonTypes\PuzzleU.BackEnd.ComonTypes.csproj">
       <Project>{F19CF3AA-04D5-4290-B5C5-08185F5D9F92}</Project>
-      <Name>Utilities</Name>
+      <Name>PuzzleU.BackEnd.ComonTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PuzzleU.BackEnd.DAL\PuzzleU.BackEnd.DAL.csproj">
+      <Project>{7F0D3D0E-236B-4B37-929E-6C3E30E58488}</Project>
+      <Name>PuzzleU.BackEnd.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

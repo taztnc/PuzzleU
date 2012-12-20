@@ -7,6 +7,7 @@ using System.Text;
 using System.Drawing;
 using System.ServiceModel.Web;
 using System.IO;
+using PuzzleU.BackEnd.ComonTypes;
 
 
 namespace PuzzleUServices

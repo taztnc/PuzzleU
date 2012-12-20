@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="00c6561e-59e4-46c9-a576-bed40a11ce35" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="06e57799-fa0e-411e-a959-b56971071f8b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,16 +18,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ea743984-24ce-4e59-b692-2b61b4e2b2e7" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd1" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="591d51e5-a676-45c9-a156-8125052bda84" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd0" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f226b0f5-a1f7-4912-8302-d771c98386e7" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd3" />
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="5d5650a9-fc89-4d57-a30b-c73e90998be5" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd2" />
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="3d957e35-6a14-4229-8b33-400ac9c18693" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd4" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="7ef0f178-9193-4229-b678-e7baf2fc71d2" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?disco" />
-    <MetadataFile FileName="PuzzleUService.wsdl" MetadataType="Wsdl" ID="79bceb1d-5775-4fe4-9e50-bdfe133d9da8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d05c5fd3-75cc-409c-93f1-17e34c755c71" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d22b3664-e3e7-40bd-a89b-6810e93d1f83" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="5e22531c-19d9-4c4a-99e6-4629bb3a165d" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="6fecf6a1-3f8a-43d8-a68b-7025f2cfbb78" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd2" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="5a5bb795-38e0-413f-bd14-b62d25533831" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd4" />
+    <MetadataFile FileName="PuzzleUService.wsdl" MetadataType="Wsdl" ID="13058fe8-63a0-4a99-86a2-efc8156cf387" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -15,10 +15,7 @@ namespace ServicesClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormUserName());
-            //Application.Run(new FormAlbums());            
-            //Application.Run(new FormImages());
-            Application.Run(new FormPuzzles());
+            Application.Run(new MainMdiParent());
         }
     }
 }

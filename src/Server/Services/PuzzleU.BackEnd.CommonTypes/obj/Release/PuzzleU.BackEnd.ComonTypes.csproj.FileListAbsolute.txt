@@ -1,0 +1,4 @@
+C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\PuzzleU.BackEnd.ComonTypes.dll
+C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\PuzzleU.BackEnd.ComonTypes.pdb
+C:\Users\yossi\Documents\GitHub1\PuzzleU\src\Server\Services\PuzzleU.BackEnd.CommonTypes\obj\Release\PuzzleU.BackEnd.ComonTypes.dll
+C:\Users\yossi\Documents\GitHub1\PuzzleU\src\Server\Services\PuzzleU.BackEnd.CommonTypes\obj\Release\PuzzleU.BackEnd.ComonTypes.pdb
