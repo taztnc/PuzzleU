@@ -10,11 +10,6 @@ namespace PuzzleU.BackEnd.ComonTypes
     [DataContract]
     public class Album
     {
-        public static string GetAlbumKey(string albumName, int userId)
-        {
-            return albumName + "." + userId.ToString();
-        }
-
         public Album(int id, string name, int userID)
         {
             ID = id;

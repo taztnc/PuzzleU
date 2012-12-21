@@ -57,6 +57,11 @@ namespace PuzzleU.BackEnd.DAL
 
         #region Private Methods
 
+        private static string GetAlbumKey(string albumName, int userId)
+        {
+            return albumName + "." + userId.ToString();
+        }
+
         private bool Load()
         {
             try
@@ -78,7 +83,7 @@ namespace PuzzleU.BackEnd.DAL
                 foreach (KeyValuePair<int, Album> albumPair in Albums)
                 {
                     Album newAlbum = albumPair.Value;
-                    AlbumsNameToIdMap.Add(Album.GetAlbumKey(newAlbum.Name, newAlbum.UserId), newAlbum.ID);
+                    AlbumsNameToIdMap.Add(GetAlbumKey(newAlbum.Name, newAlbum.UserId), newAlbum.ID);
 
                     if (newAlbum.ID > MaxId)
                         MaxId = newAlbum.ID;
@@ -117,7 +122,7 @@ namespace PuzzleU.BackEnd.DAL
 
         private bool AlbumExists(string albumName, int userId)
         {
-            return AlbumsNameToIdMap.ContainsKey(Album.GetAlbumKey(albumName, userId));
+            return AlbumsNameToIdMap.ContainsKey(GetAlbumKey(albumName, userId));
         }
 
         private bool AlbumExists(int albumId)
@@ -150,7 +155,7 @@ namespace PuzzleU.BackEnd.DAL
 
             Albums.Add(id, new Album(id, albumName, userId));
 
-            AlbumsNameToIdMap.Add(Album.GetAlbumKey(albumName, userId), id);
+            AlbumsNameToIdMap.Add(GetAlbumKey(albumName, userId), id);
 
             return true;
         }
@@ -166,7 +171,7 @@ namespace PuzzleU.BackEnd.DAL
                 return false;
             }
 
-            id = AlbumsNameToIdMap[Album.GetAlbumKey(albumName, userId)];
+            id = AlbumsNameToIdMap[GetAlbumKey(albumName, userId)];
 
             return true;
         }
@@ -183,7 +188,7 @@ namespace PuzzleU.BackEnd.DAL
 
             string name = Albums[id].Name;
             
-            AlbumsNameToIdMap.Remove( Album.GetAlbumKey(Albums[id].Name, Albums[id].UserId));
+            AlbumsNameToIdMap.Remove(GetAlbumKey(Albums[id].Name, Albums[id].UserId));
             Albums.Remove(id);
 
             return true;
