@@ -91,9 +91,9 @@ namespace PuzzleU.BackEnd.DAL
                     User newUser = userPair.Value;
                     UsersNameToIdMap.Add(newUser.Name, newUser.ID);
 
-                    foreach (KeyValuePair<int, UserAlbum> albumPair in newUser.Albums)
+                    foreach (Album album in newUser.Albums)
                     {
-                        AlbumIdToUserId.Add(albumPair.Key, newUser.ID);
+                        AlbumIdToUserId.Add(album.ID, newUser.ID);
                     }
 
                     if (newUser.ID > MaxId)
@@ -165,7 +165,12 @@ namespace PuzzleU.BackEnd.DAL
             
             id = GenerateID();
 
-            Users.Add(id, new User(id, sUserName));
+            Users.Add(id, new User()
+            {
+                ID = id,
+                Name = sUserName,
+                Albums = new List<Album>()
+            });
             UsersNameToIdMap.Add(sUserName, id);
 
             return true;
@@ -200,9 +205,9 @@ namespace PuzzleU.BackEnd.DAL
             string name = Users[id].Name;
             UsersNameToIdMap.Remove(name);
 
-            foreach (KeyValuePair<int, UserAlbum> albumPair in Users[id].Albums)
+            foreach (Album album in Users[id].Albums)
             {
-                AlbumIdToUserId.Remove(albumPair.Key);
+                AlbumIdToUserId.Remove(album.ID);
             }
 
             Users.Remove(id);
@@ -222,7 +227,13 @@ namespace PuzzleU.BackEnd.DAL
             }
 
             User user = Users[userId];
-            albumIDs = user.GetAlbumsIds();
+
+            albumIDs = new List<int>();
+
+            foreach (Album album in user.Albums)
+            {
+                albumIDs.Add(album.ID);
+            }
                      
             return true;
         }
@@ -251,14 +262,13 @@ namespace PuzzleU.BackEnd.DAL
             }
 
             User user = Users[userID];
-            if (user.Albums.ContainsKey(albumId))
+            Album searchResult = user.Albums.Find(new Predicate<Album>(album => { return album.ID == albumId; }));
+            if (searchResult != null)
             {
                 errorString = "Album already exists";
                 return false;
             }
-
-            UserAlbum album = new UserAlbum(albumId);
-            user.Albums.Add(albumId, album);
+            user.Albums.Add(searchResult);
 
             AlbumIdToUserId.Add(albumId, userID);
 
@@ -279,7 +289,7 @@ namespace PuzzleU.BackEnd.DAL
             AlbumIdToUserId.Remove(albumId);
 
             User user = Users[userId];
-            user.Albums.Remove(albumId);
+            user.Albums.RemoveAll(new Predicate<Album>(album => { return album.ID == albumId; })); ;
 
             return true;
         }       

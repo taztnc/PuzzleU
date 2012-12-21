@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\EntityFramework\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -49,6 +53,7 @@
     <Compile Include="DAL_DB\DBManagersFactory.cs" />
     <Compile Include="DAL_DB\DBPuzzlePartsManager.cs" />
     <Compile Include="DAL_DB\DBUsersDataManager.cs" />
+    <Compile Include="DAL_DB\PuzzleDBContext.cs" />
     <Compile Include="DAL_JSON\JSONAlbumsDataManager.cs" />
     <Compile Include="DAL_Interfaces\IAlbumsDataManager.cs" />
     <Compile Include="DAL_Interfaces\IImagesManager.cs" />
@@ -75,7 +80,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="App.config" />
-    <None Include="packages.config" />
     <None Include="puzzles.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
