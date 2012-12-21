@@ -10,25 +10,16 @@ namespace PuzzleU.BackEnd.ComonTypes
     [DataContract]
     public class Album
     {
-        public Album(int id, string name, int userID)
-        {
-            ID = id;
-            Name = name;
-            UserId = userID;
-
-            ImagesData = new Dictionary<string, AlbumImageData>();
-        }        
+        [DataMember]
+        public int ID { get; set; }
 
         [DataMember]
-        public int ID { get; private set; }
+        public string Name { get; set; }
 
         [DataMember]
-        public string Name { get; private set; }
+        public int UserId { get; set; }
 
         [DataMember]
-        public int UserId { get; private set; }
-
-        [DataMember]
-        public Dictionary<string, AlbumImageData> ImagesData { get; private set; }        
+        public Dictionary<string, AlbumImageData> ImagesData { get; set; }        
     }    
 }

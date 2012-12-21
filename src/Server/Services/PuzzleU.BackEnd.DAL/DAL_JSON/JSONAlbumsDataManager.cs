@@ -153,8 +153,13 @@ namespace PuzzleU.BackEnd.DAL
 
             id = GenerateID();
 
-            Albums.Add(id, new Album(id, albumName, userId));
-
+            Albums.Add(id, new Album()
+                {
+                    ID = id,
+                    Name = albumName,
+                    UserId = userId,
+                    ImagesData = new Dictionary<string,AlbumImageData>()
+                });
             AlbumsNameToIdMap.Add(GetAlbumKey(albumName, userId), id);
 
             return true;
