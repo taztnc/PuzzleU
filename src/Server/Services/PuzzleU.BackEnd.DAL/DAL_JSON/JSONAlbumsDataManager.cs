@@ -242,7 +242,12 @@ namespace PuzzleU.BackEnd.DAL
                 return false;
             }
 
-            AlbumImageData imageData = new AlbumImageData(imageName, url, albumId);
+            AlbumImageData imageData = new AlbumImageData()
+                {
+                    AlbumId = albumId,
+                    Name = imageName,
+                    URL = url
+                };
 
             album.ImagesData.Add(imageName, imageData);
             
