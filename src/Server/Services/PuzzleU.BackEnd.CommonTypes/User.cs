@@ -17,7 +17,7 @@ namespace PuzzleU.BackEnd.ComonTypes
         public string Name { get; set; }
 
         [DataMember]
-        public virtual List<Album> Albums { get; set; }
+        public virtual List<Album>  Albums { get;  set; }
              
     }
 }

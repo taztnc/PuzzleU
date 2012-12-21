@@ -251,7 +251,7 @@ namespace PuzzleU.BackEnd.DAL
             return true;
         }
 
-        public bool AddUserAlbum(int userID, int albumId, out string errorString)
+        public bool AddUserAlbum(int userID, Album album, out string errorString)
         {
             errorString = string.Empty;
 
@@ -262,15 +262,16 @@ namespace PuzzleU.BackEnd.DAL
             }
 
             User user = Users[userID];
-            Album searchResult = user.Albums.Find(new Predicate<Album>(album => { return album.ID == albumId; }));
-            if (searchResult != null)
+
+            if (user.Albums.Contains(album))
             {
                 errorString = "Album already exists";
                 return false;
             }
-            user.Albums.Add(searchResult);
 
-            AlbumIdToUserId.Add(albumId, userID);
+            user.Albums.Add(album);
+
+            AlbumIdToUserId.Add(album.ID, userID);
 
             return true;
         }

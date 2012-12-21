@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PuzzleUServices" />
+  <xs:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes" />
   <xs:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/?xsd=xsd4" namespace="http://schemas.microsoft.com/Message" />
   <xs:element name="CreateUser">
@@ -59,7 +59,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetUsersDataResult" type="xs:boolean" />
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PuzzleUServices" minOccurs="0" name="users" nillable="true" type="q1:ArrayOfUserData" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes" minOccurs="0" name="users" nillable="true" type="q1:ArrayOfUserData" />
         <xs:element minOccurs="0" name="errorString" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -140,7 +140,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAlbumsDataResult" type="xs:boolean" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PuzzleUServices" minOccurs="0" name="albums" nillable="true" type="q3:ArrayOfAlbumData" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes" minOccurs="0" name="albums" nillable="true" type="q3:ArrayOfAlbumData" />
         <xs:element minOccurs="0" name="errorString" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -149,7 +149,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="albumId" type="xs:int" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PuzzleUServices" minOccurs="0" name="imageFileData" nillable="true" type="q4:ImageFileData" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes" minOccurs="0" name="imageFileData" nillable="true" type="q4:ImageFileData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -206,7 +206,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetPuzzleDataResult" type="xs:boolean" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PuzzleUServices" minOccurs="0" name="puzzleData" nillable="true" type="q6:PuzzleData" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes" minOccurs="0" name="puzzleData" nillable="true" type="q6:PuzzleData" />
         <xs:element minOccurs="0" name="errorString" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

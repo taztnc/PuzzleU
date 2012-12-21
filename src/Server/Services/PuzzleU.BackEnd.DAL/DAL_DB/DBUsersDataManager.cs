@@ -9,7 +9,7 @@ namespace PuzzleU.BackEnd.DAL
     class DBUsersDataManager : IUsersDataManager
     {
 
-        public bool AddUserAlbum(int userID, int albumId, out string errorString)
+        public bool AddUserAlbum(int userID, Album album, out string errorString)
         {
             throw new NotImplementedException();
         }

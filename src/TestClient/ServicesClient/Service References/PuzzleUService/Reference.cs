@@ -15,7 +15,7 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserData", Namespace="http://schemas.datacontract.org/2004/07/CommonTypes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class UserData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -76,7 +76,7 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumData", Namespace="http://schemas.datacontract.org/2004/07/CommonTypes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlbumData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class AlbumData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -137,7 +137,7 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ImageFileData", Namespace="http://schemas.datacontract.org/2004/07/CommonTypes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageFileData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class ImageFileData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -214,7 +214,7 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PuzzleData", Namespace="http://schemas.datacontract.org/2004/07/CommonTypes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PuzzleData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class PuzzleData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -275,7 +275,7 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ImageData", Namespace="http://schemas.datacontract.org/2004/07/CommonTypes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class ImageData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -352,7 +352,7 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PuzzlePartData", Namespace="http://schemas.datacontract.org/2004/07/CommonTypes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PuzzlePartData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class PuzzlePartData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

@@ -158,7 +158,15 @@ namespace PuzzleUServices
                 return false;
             }
 
-            return usersDataMan.AddUserAlbum(userID, albumId, out errorString);
+            List<Album> albums = null;
+            if (!albumsDataMan.GetAlbums(new List<int>() { albumId },out albums, out errorString) || 
+                albums == null || albums.Count != 1 || albums[0] == null)
+            {
+                errorString = "Faied adding album to user";
+                return false;
+            }
+
+            return usersDataMan.AddUserAlbum(userID, albums[0], out errorString);
         }
 
         public bool DeleteAlbum(int albumId, out string errorString)

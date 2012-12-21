@@ -1,9 +1,11 @@
 ﻿using System;
+using PuzzleU.BackEnd.ComonTypes;
+
 namespace PuzzleU.BackEnd.DAL
 {
     public interface IUsersDataManager
     {
-        bool AddUserAlbum(int userID, int albumId, out string errorString);
+        bool AddUserAlbum(int userID, Album album, out string errorString);
         bool CreateUser(string sUserName, out int id, out string errorString);
         bool DeleteUser(int id, out string errorString);
         bool DeleteUserAlbum(int albumId, out string errorString);
