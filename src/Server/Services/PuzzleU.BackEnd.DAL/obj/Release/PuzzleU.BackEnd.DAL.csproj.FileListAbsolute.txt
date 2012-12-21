@@ -1,8 +1,0 @@
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\DAL_JSON\DataFiles\albums.json
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\DAL_JSON\DataFiles\puzzles.json
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\DAL_JSON\DataFiles\users.json
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\PuzzleU.BackEnd.DAL.dll
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\WebSite\bin\Release\PuzzleU.BackEnd.DAL.pdb
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\Server\Services\PuzzleU.BackEnd.DAL\obj\Release\PuzzleU.BackEnd.DAL.csprojResolveAssemblyReference.cache
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\Server\Services\PuzzleU.BackEnd.DAL\obj\Release\PuzzleU.BackEnd.DAL.dll
-C:\Users\yossi\Documents\GitHub1\PuzzleU\src\Server\Services\PuzzleU.BackEnd.DAL\obj\Release\PuzzleU.BackEnd.DAL.pdb
