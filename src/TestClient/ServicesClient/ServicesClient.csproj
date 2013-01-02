@@ -66,6 +66,12 @@
     <Compile Include="FormPuzzles.Designer.cs">
       <DependentUpon>FormPuzzles.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUserMetaData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserMetaData.Designer.cs">
+      <DependentUpon>FormUserMetaData.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPuzzles.resx">
       <DependentUpon>FormPuzzles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserMetaData.resx">
+      <DependentUpon>FormUserMetaData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserName.resx">
       <DependentUpon>FormUserName.cs</DependentUpon>

@@ -44,5 +44,10 @@ namespace ServicesClient
             form.Show();
         }
 
+        private void userMetaDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenMDIChild(new FormUserMetaData());
+        }
+
     }
 }

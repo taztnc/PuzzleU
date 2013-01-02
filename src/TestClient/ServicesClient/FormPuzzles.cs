@@ -20,15 +20,15 @@ namespace ServicesClient
 
         private void buttonGetPuzzleData_Click(object sender, EventArgs e)
         {
-            int albumId = -1;
+            int imageId = -1;
 
-            if (!int.TryParse(textBoxAlbumId.Text, out albumId))
+            if (!int.TryParse(textBoxImageId.Text, out imageId))
             {
                 MessageBox.Show("Album ID should be an int");
                 return;
             }
 
-            if (string.IsNullOrEmpty(textBoxImageName.Text))
+            if (string.IsNullOrEmpty(textBoxImageId.Text))
             {
                 MessageBox.Show("Please add an image name");
                 return;
@@ -44,7 +44,7 @@ namespace ServicesClient
             var proxy = new PuzzleUService.PuzzleUServiceClient();
             PuzzleUService.PuzzleData puzzleData;
             string errorString = string.Empty;
-            if (!proxy.GetPuzzleData(out puzzleData, out errorString, albumId, textBoxImageName.Text, difficultyLevel))
+            if (!proxy.GetPuzzleData(out puzzleData, out errorString, imageId, difficultyLevel))
             {
                 textBoxPuzzleData.Text = errorString;
                 return;

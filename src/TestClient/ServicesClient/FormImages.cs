@@ -30,7 +30,7 @@ namespace ServicesClient
             string errorString = string.Empty;
 
             listBoxAlbumImages.Items.Clear();
-            string[] images = null;
+            int[] images = null;
 
             if (!proxy.GetAlbumImages(out images, out errorString, albumId))
             {
@@ -38,9 +38,9 @@ namespace ServicesClient
                 return;
             }
 
-            foreach (string image in images)
+            foreach (int image in images)
             {
-                listBoxAlbumImages.Items.Add(image);
+                listBoxAlbumImages.Items.Add(image.ToString());
             }
         }
 
@@ -67,7 +67,6 @@ namespace ServicesClient
             byte[] imageByteData = File.ReadAllBytes(path);
 
             PuzzleUService.ImageFileData imageFileData = new PuzzleUService.ImageFileData();
-            imageFileData.ImageName = Path.GetFileName(path);
             imageFileData.ImageFormat = Path.GetExtension(path);
             imageFileData.ImageStream = imageByteData;
 
@@ -81,24 +80,18 @@ namespace ServicesClient
 
         private void buttonDeleteImage_Click(object sender, EventArgs e)
         {
-            string name = textBoxDeleteImageImageName.Text;
-            if (string.IsNullOrEmpty(name))
-            {
-                MessageBox.Show("Image name is required");
-                return;
-            }
-
+            int imageId = Convert.ToInt32(textBoxImageId.Text);
             var proxy = new PuzzleUService.PuzzleUServiceClient();
             string errorString = string.Empty;
 
             int albumId;
-            if (!int.TryParse(textBoxDeleteImageAlbumID.Text, out albumId))
+            if (!int.TryParse(textBoxImageId.Text, out albumId))
             {
                 MessageBox.Show("Album ID should be a number");
                 return;
             }
 
-            if (!proxy.DeleteImage(out errorString, albumId, name))
+            if (!proxy.DeleteImage(out errorString, imageId))
                 textBoxDeleteImageResult.Text = errorString;
             else
                 textBoxDeleteImageResult.Text = "Success";

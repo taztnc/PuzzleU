@@ -14,9 +14,6 @@ namespace PuzzleU.BackEnd.ComonTypes
     public class ImageFileData
     {
         [DataMember]
-        public string ImageName { get; set; }
-
-        [DataMember]
         public byte[] ImageStream { get; set; }
 
         [DataMember]
@@ -32,6 +29,9 @@ namespace PuzzleU.BackEnd.ComonTypes
 
         [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
+        public List<AlbumData> Albums { get; set; }
     }
 
     [DataContract]
@@ -42,6 +42,9 @@ namespace PuzzleU.BackEnd.ComonTypes
 
         [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
+        public List<ImageData> Images { get; set; }
     }
 
     [DataContract]
@@ -71,6 +74,9 @@ namespace PuzzleU.BackEnd.ComonTypes
     [DataContract]
     public class ImageData
     {
+        [DataMember]
+        public int ID { get; set; }
+
         [DataMember]
         public string URL { get; set; }
      

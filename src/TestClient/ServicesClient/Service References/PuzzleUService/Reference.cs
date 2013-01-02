@@ -23,6 +23,9 @@ namespace ServicesClient.PuzzleUService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ServicesClient.PuzzleUService.AlbumData[] AlbumsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -35,6 +38,19 @@ namespace ServicesClient.PuzzleUService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServicesClient.PuzzleUService.AlbumData[] Albums {
+            get {
+                return this.AlbumsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlbumsField, value) != true)) {
+                    this.AlbumsField = value;
+                    this.RaisePropertyChanged("Albums");
+                }
             }
         }
         
@@ -87,6 +103,9 @@ namespace ServicesClient.PuzzleUService {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ServicesClient.PuzzleUService.ImageData[] ImagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -108,6 +127,19 @@ namespace ServicesClient.PuzzleUService {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServicesClient.PuzzleUService.ImageData[] Images {
+            get {
+                return this.ImagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagesField, value) != true)) {
+                    this.ImagesField = value;
+                    this.RaisePropertyChanged("Images");
                 }
             }
         }
@@ -137,6 +169,99 @@ namespace ServicesClient.PuzzleUService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImageData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
+    [System.SerializableAttribute()]
+    public partial class ImageData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string URLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int WidthField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Height {
+            get {
+                return this.HeightField;
+            }
+            set {
+                if ((this.HeightField.Equals(value) != true)) {
+                    this.HeightField = value;
+                    this.RaisePropertyChanged("Height");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string URL {
+            get {
+                return this.URLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.URLField, value) != true)) {
+                    this.URLField = value;
+                    this.RaisePropertyChanged("URL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Width {
+            get {
+                return this.WidthField;
+            }
+            set {
+                if ((this.WidthField.Equals(value) != true)) {
+                    this.WidthField = value;
+                    this.RaisePropertyChanged("Width");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImageFileData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
     [System.SerializableAttribute()]
     public partial class ImageFileData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -146,9 +271,6 @@ namespace ServicesClient.PuzzleUService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImageFormatField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private byte[] ImageStreamField;
@@ -172,19 +294,6 @@ namespace ServicesClient.PuzzleUService {
                 if ((object.ReferenceEquals(this.ImageFormatField, value) != true)) {
                     this.ImageFormatField = value;
                     this.RaisePropertyChanged("ImageFormat");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ImageName {
-            get {
-                return this.ImageNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImageNameField, value) != true)) {
-                    this.ImageNameField = value;
-                    this.RaisePropertyChanged("ImageName");
                 }
             }
         }
@@ -259,83 +368,6 @@ namespace ServicesClient.PuzzleUService {
                 if ((object.ReferenceEquals(this.PuzzlePartDataField, value) != true)) {
                     this.PuzzlePartDataField = value;
                     this.RaisePropertyChanged("PuzzlePartData");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ImageData", Namespace="http://schemas.datacontract.org/2004/07/PuzzleU.BackEnd.ComonTypes")]
-    [System.SerializableAttribute()]
-    public partial class ImageData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int HeightField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string URLField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int WidthField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Height {
-            get {
-                return this.HeightField;
-            }
-            set {
-                if ((this.HeightField.Equals(value) != true)) {
-                    this.HeightField = value;
-                    this.RaisePropertyChanged("Height");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string URL {
-            get {
-                return this.URLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.URLField, value) != true)) {
-                    this.URLField = value;
-                    this.RaisePropertyChanged("URL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Width {
-            get {
-                return this.WidthField;
-            }
-            set {
-                if ((this.WidthField.Equals(value) != true)) {
-                    this.WidthField = value;
-                    this.RaisePropertyChanged("Width");
                 }
             }
         }
@@ -443,6 +475,9 @@ namespace ServicesClient.PuzzleUService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUService/GetUsersData", ReplyAction="http://tempuri.org/IPuzzleUService/GetUsersDataResponse")]
         bool GetUsersData(out ServicesClient.PuzzleUService.UserData[] users, out string errorString);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUService/GetUserData", ReplyAction="http://tempuri.org/IPuzzleUService/GetUserDataResponse")]
+        bool GetUserData(out ServicesClient.PuzzleUService.UserData userData, out string errorString, int userId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUService/CreateAlbum", ReplyAction="http://tempuri.org/IPuzzleUService/CreateAlbumResponse")]
         bool CreateAlbum(out int albumId, out string errorString, int userId, string albumName);
         
@@ -462,13 +497,13 @@ namespace ServicesClient.PuzzleUService {
         bool AddImage(out string errorString, int albumId, ServicesClient.PuzzleUService.ImageFileData imageFileData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUService/DeleteImage", ReplyAction="http://tempuri.org/IPuzzleUService/DeleteImageResponse")]
-        bool DeleteImage(out string errorString, int albumId, string imageName);
+        bool DeleteImage(out string errorString, int imageId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUService/GetAlbumImages", ReplyAction="http://tempuri.org/IPuzzleUService/GetAlbumImagesResponse")]
-        bool GetAlbumImages(out string[] images, out string errorString, int iAlbumID);
+        bool GetAlbumImages(out int[] images, out string errorString, int iAlbumID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPuzzleUService/GetPuzzleData", ReplyAction="http://tempuri.org/IPuzzleUService/GetPuzzleDataResponse")]
-        bool GetPuzzleData(out ServicesClient.PuzzleUService.PuzzleData puzzleData, out string errorString, int albumId, string imageName, int iDifficultyLevel);
+        bool GetPuzzleData(out ServicesClient.PuzzleUService.PuzzleData puzzleData, out string errorString, int imageId, int iDifficultyLevel);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -514,6 +549,10 @@ namespace ServicesClient.PuzzleUService {
             return base.Channel.GetUsersData(out users, out errorString);
         }
         
+        public bool GetUserData(out ServicesClient.PuzzleUService.UserData userData, out string errorString, int userId) {
+            return base.Channel.GetUserData(out userData, out errorString, userId);
+        }
+        
         public bool CreateAlbum(out int albumId, out string errorString, int userId, string albumName) {
             return base.Channel.CreateAlbum(out albumId, out errorString, userId, albumName);
         }
@@ -538,16 +577,16 @@ namespace ServicesClient.PuzzleUService {
             return base.Channel.AddImage(out errorString, albumId, imageFileData);
         }
         
-        public bool DeleteImage(out string errorString, int albumId, string imageName) {
-            return base.Channel.DeleteImage(out errorString, albumId, imageName);
+        public bool DeleteImage(out string errorString, int imageId) {
+            return base.Channel.DeleteImage(out errorString, imageId);
         }
         
-        public bool GetAlbumImages(out string[] images, out string errorString, int iAlbumID) {
+        public bool GetAlbumImages(out int[] images, out string errorString, int iAlbumID) {
             return base.Channel.GetAlbumImages(out images, out errorString, iAlbumID);
         }
         
-        public bool GetPuzzleData(out ServicesClient.PuzzleUService.PuzzleData puzzleData, out string errorString, int albumId, string imageName, int iDifficultyLevel) {
-            return base.Channel.GetPuzzleData(out puzzleData, out errorString, albumId, imageName, iDifficultyLevel);
+        public bool GetPuzzleData(out ServicesClient.PuzzleUService.PuzzleData puzzleData, out string errorString, int imageId, int iDifficultyLevel) {
+            return base.Channel.GetPuzzleData(out puzzleData, out errorString, imageId, iDifficultyLevel);
         }
     }
     

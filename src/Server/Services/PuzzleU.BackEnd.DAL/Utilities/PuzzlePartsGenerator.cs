@@ -167,11 +167,11 @@ namespace PuzzleU.BackEnd.DAL
                     puzzlePartBM.SetPixel(i, j, imageBM.GetPixel(puzzlePartRect.MinX + i, puzzlePartRect.MinY + j));
                 }
             }
-          
-            JSONImagesManager imagesManager = JSONImagesManager.Instance;
+
+            ManagersFactory factory = ManagersFactory.Create();
+            IImagesManager imagesManager = factory.CreateImagesManager();
             string URL;
-            imagesManager.SaveImage(AlbumId, string.Format("{0}_{1}_{2}", puzzlePartRect.MinX.ToString(), puzzlePartRect.MinY.ToString(), Path.GetFileName(ImageData.URL)), 
-                                        puzzlePartBM, out URL);
+            imagesManager.SaveImage(AlbumId, puzzlePartBM, out URL);
 
             return URL;
         }

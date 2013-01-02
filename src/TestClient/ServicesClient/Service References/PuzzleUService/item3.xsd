@@ -8,6 +8,7 @@
   <xs:element name="ArrayOfUserData" nillable="true" type="tns:ArrayOfUserData" />
   <xs:complexType name="UserData">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Albums" nillable="true" type="tns:ArrayOfAlbumData" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -22,14 +23,29 @@
   <xs:complexType name="AlbumData">
     <xs:sequence>
       <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Images" nillable="true" type="tns:ArrayOfImageData" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AlbumData" nillable="true" type="tns:AlbumData" />
+  <xs:complexType name="ArrayOfImageData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImageData" nillable="true" type="tns:ImageData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImageData" nillable="true" type="tns:ArrayOfImageData" />
+  <xs:complexType name="ImageData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Height" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImageData" nillable="true" type="tns:ImageData" />
   <xs:complexType name="ImageFileData">
     <xs:sequence>
       <xs:element minOccurs="0" name="ImageFormat" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ImageName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ImageStream" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
@@ -41,14 +57,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PuzzleData" nillable="true" type="tns:PuzzleData" />
-  <xs:complexType name="ImageData">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Height" type="xs:int" />
-      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Width" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ImageData" nillable="true" type="tns:ImageData" />
   <xs:complexType name="ArrayOfPuzzlePartData">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="PuzzlePartData" nillable="true" type="tns:PuzzlePartData" />

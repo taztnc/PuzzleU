@@ -9,6 +9,9 @@ using System.ServiceModel.Web;
 using System.IO;
 using PuzzleU.BackEnd.ComonTypes;
 
+#warning yossim : communications with the services should be based on a session token, we should add CreateSession and DestroySession operation that are based on a user.It also means that we have to add session management module(or service).
+#warning yossim : What about security? 
+#warning yossim : What about a password for users?!!?!
 
 namespace PuzzleUServices
 {
@@ -20,6 +23,8 @@ namespace PuzzleUServices
         //[OperationContract, WebInvoke(Method = "POST", UriTemplate = "Signup", BodyStyle = WebMessageBodyStyle.Bare)]
         //string Singup(Stream contents);
 
+
+        //USER OPERATIONS -------------------------------------------------------------
         [OperationContract]
         bool CreateUser(string sUserName, out int id, out string errorString);
         [OperationContract]
@@ -28,7 +33,16 @@ namespace PuzzleUServices
         bool DeleteUser(int id, out string errorString);
         [OperationContract]
         bool GetUsersData(out List<UserData> users, out string errorString);
+        /// <summary>
+        /// Get All information about the user in one call. in normal user flows We should really use this call instead of all other query calls,
+        /// to reduce high-latency issues. This call doesn't return images data , it just returns the meta data for a specific user.
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        bool GetUserData(int userId, out UserData userData, out String errorString);
 
+
+        //ALBUM OPERATIONS -------------------------------------------------------------
         [OperationContract]
         bool CreateAlbum(int userId, string albumName, out int albumId, out string errorString); // Returns AlbumID
         [OperationContract]
@@ -47,15 +61,19 @@ namespace PuzzleUServices
         //           2. We can do this after we finish writing the basic operation contracts
         //           3. The parsing should be clear on what we expect in the Posted/Get message
 
+
+        //IMAGE OPERATIONS -------------------------------------------------------------
         [OperationContract]
         bool AddImage(int albumId, ImageFileData imageFileData, out string errorString);
         [OperationContract]
-        bool DeleteImage(int albumId, string imageName, out string errorString);
+        bool DeleteImage(int imageId, out string errorString);
         [OperationContract]
-        bool GetAlbumImages(int iAlbumID, out List<string> images, out string errorString); // Returns List<Images name>
+        bool GetAlbumImages(int iAlbumID, out List<int> images, out string errorString); // Returns List<Images name>
 
+
+        //PUZZLE OPERATIONS -------------------------------------------------------------
         [OperationContract]
-        bool GetPuzzleData(int albumId, string imageName, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString);
+        bool GetPuzzleData(int imageId, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString);
 
     }
 }

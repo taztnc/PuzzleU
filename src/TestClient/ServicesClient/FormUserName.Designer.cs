@@ -35,6 +35,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBoxCreate = new System.Windows.Forms.GroupBox();
             this.groupBoxDeleteUser = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxDeleteResult = new System.Windows.Forms.TextBox();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
             this.textBoxDeleteUserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.buttonGetUserName = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxGetUserName = new System.Windows.Forms.TextBox();
-            this.textBoxDeleteResult = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxCreate.SuspendLayout();
@@ -123,6 +123,23 @@
             this.groupBoxDeleteUser.TabIndex = 8;
             this.groupBoxDeleteUser.TabStop = false;
             this.groupBoxDeleteUser.Text = "Delete User";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(122, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Result:";
+            // 
+            // textBoxDeleteResult
+            // 
+            this.textBoxDeleteResult.Location = new System.Drawing.Point(172, 63);
+            this.textBoxDeleteResult.Name = "textBoxDeleteResult";
+            this.textBoxDeleteResult.ReadOnly = true;
+            this.textBoxDeleteResult.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDeleteResult.TabIndex = 10;
             // 
             // buttonDeleteUser
             // 
@@ -207,29 +224,12 @@
             this.textBoxGetUserName.Size = new System.Drawing.Size(100, 20);
             this.textBoxGetUserName.TabIndex = 8;
             // 
-            // textBoxDeleteResult
-            // 
-            this.textBoxDeleteResult.Location = new System.Drawing.Point(172, 63);
-            this.textBoxDeleteResult.Name = "textBoxDeleteResult";
-            this.textBoxDeleteResult.ReadOnly = true;
-            this.textBoxDeleteResult.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDeleteResult.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(122, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Result:";
-            // 
             // listBoxUsers
             // 
             this.listBoxUsers.FormattingEnabled = true;
             this.listBoxUsers.Location = new System.Drawing.Point(371, 39);
             this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(206, 264);
+            this.listBoxUsers.Size = new System.Drawing.Size(737, 264);
             this.listBoxUsers.TabIndex = 10;
             // 
             // label7
@@ -245,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 366);
+            this.ClientSize = new System.Drawing.Size(1157, 363);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listBoxUsers);
             this.Controls.Add(this.groupBox1);

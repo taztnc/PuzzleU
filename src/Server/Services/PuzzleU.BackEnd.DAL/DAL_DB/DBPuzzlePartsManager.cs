@@ -11,27 +11,21 @@ namespace PuzzleU.BackEnd.DAL
 
         public bool GetPuzzlePartsData(ImageData imageData, int diffLevel, out List<PuzzlePartData> puzzlePartsData, out string errorString)
         {
-            throw new NotImplementedException();
-        }
+            PuzzlePartsGenerator generator = new PuzzlePartsGenerator()
+            {
+                DifficultyLevel = diffLevel,
+                ImageData = imageData
+            };
 
-        public bool Load()
-        {
-            throw new NotImplementedException();
-        }
+            if (!generator.Generate(out errorString))
+            {
+                puzzlePartsData = new List<PuzzlePartData>();
+                return false;
+            }
 
-        public bool PuzzlePartsDataExists(ImageData imageData, int iDifficultyLevel)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Dictionary<string, List<PuzzlePartData>> PuzzlePartsMap
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
+            errorString = "";
+            puzzlePartsData = generator.PuzzlePartsData;
+            return true;
         }
     }
 }

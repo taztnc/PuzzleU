@@ -12,12 +12,12 @@ using System.Threading;
 
 namespace HostForm
 {
-    public partial class Form1 : Form
+    public partial class HostForm : Form
     {
         private ServiceHost host;
 
 
-        public Form1()
+        public HostForm()
         {
             InitializeComponent();
             host = null;
@@ -34,22 +34,10 @@ namespace HostForm
             }
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (host == null)
                 return;
-
-            PuzzleUService service = (PuzzleUService)host.SingletonInstance;
-            if (service != null)
-                service.Save();
-
             host.Close();
         }
 

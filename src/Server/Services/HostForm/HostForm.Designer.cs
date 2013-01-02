@@ -1,6 +1,6 @@
 ﻿namespace HostForm
 {
-    partial class Form1
+    partial class HostForm
     {
         /// <summary>
         /// Required designer variable.

@@ -4,20 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Runtime.Serialization;
+using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
 
 namespace PuzzleU.BackEnd.ComonTypes
 {
-    [DataContract]
     public class User
     {
-        [DataMember]
-        public int ID { get; set; }
-
-        [DataMember]
+        public int UserId { get; set; }
         public string Name { get; set; }
-
-        [DataMember]
-        public virtual List<Album>  Albums { get;  set; }
-             
+        public virtual  List<Album>  Albums { get;  set; }         
     }
 }

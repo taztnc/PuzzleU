@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\WebSite\bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\WebSite\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\WebSite\bin\Release\</OutputPath>
+    <OutputPath>..\..\..\WebSite\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -41,6 +41,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,21 +54,15 @@
     <Compile Include="DAL_DB\DBManagersFactory.cs" />
     <Compile Include="DAL_DB\DBPuzzlePartsManager.cs" />
     <Compile Include="DAL_DB\DBUsersDataManager.cs" />
-    <Compile Include="DAL_DB\PuzzleDBContext.cs" />
-    <Compile Include="DAL_JSON\JSONAlbumsDataManager.cs" />
+    <Compile Include="DAL_DB\PuzzleUDBContext.cs" />
     <Compile Include="DAL_Interfaces\IAlbumsDataManager.cs" />
     <Compile Include="DAL_Interfaces\IImagesManager.cs" />
-    <Compile Include="DAL_JSON\JSONImagesManager.cs" />
     <Compile Include="DAL_Interfaces\ManagersFactory.cs" />
     <Compile Include="DAL_Interfaces\IPuzzlePartsManager.cs" />
     <Compile Include="DAL_Interfaces\IUsersDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ImageStoreUtilities.cs" />
     <Compile Include="Utilities\PuzzlePartsGenerator.cs" />
-    <Compile Include="DAL_JSON\JSONPuzzlePartsManager.cs" />
-    <Compile Include="DAL_JSON\JSONUsersDataManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="DAL_JSON\JSONManagersFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PuzzleU.BackEnd.CommonTypes\PuzzleU.BackEnd.ComonTypes.csproj">
@@ -76,17 +71,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="albums.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="App.config" />
-    <None Include="puzzles.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="users.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

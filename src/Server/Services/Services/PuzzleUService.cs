@@ -22,7 +22,6 @@ namespace PuzzleUServices
     public class PuzzleUService : IPuzzleUService, IPuzzleUWebService
     {
         ManagersFactory managersFactory = ManagersFactory.Create();
-        // User Name
         public bool CreateUser(string sUserName, out int id, out string errorString)
         {
             errorString = string.Empty;
@@ -67,6 +66,45 @@ namespace PuzzleUServices
             return usersDataMan.DeleteUser(id, out errorString);
         }
 
+        public bool GetUserData(int userId,out UserData userData,out String errorString)
+        {
+            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
+            User user = usersDataMan.GetUser(userId);
+
+            if(user == null)
+            {
+                errorString = "User not found";
+                userData = null;
+                return false;
+            }
+
+            userData = new UserData();
+            userData.ID = user.UserId;
+            userData.Name = user.Name;
+            userData.Albums = new List<AlbumData>();
+            foreach (var album in user.Albums)
+            {
+                AlbumData albumData = new AlbumData();
+                albumData.ID = album.AlbumId;
+                albumData.Name = album.Name;
+                albumData.Images = new List<ImageData>();
+                foreach(var albumImageData in album.ImagesData)
+                {
+                    ImageData imageData = new ImageData();
+                    imageData.ID = albumImageData.AlbumImageDataId;
+                    imageData.URL = albumImageData.URL;
+                    Image image = Image.FromFile(albumImageData.URL);
+                    imageData.Height = image.Height;
+                    imageData.Width = image.Width;
+                    albumData.Images.Add(imageData);
+                }
+                userData.Albums.Add(albumData);
+            }
+            errorString = "";
+            return true;
+        }
+
+
         public bool GetAlbumsData(int userId, out List<AlbumData> albumsData, out string errorString)
         {
             albumsData = null;
@@ -98,7 +136,7 @@ namespace PuzzleUServices
             foreach (Album album in albums)
             {
                 AlbumData albumData = new AlbumData();
-                albumData.ID = album.ID;
+                albumData.ID = album.AlbumId;
                 albumData.Name = album.Name;
 
                 albumsData.Add(albumData);
@@ -127,7 +165,7 @@ namespace PuzzleUServices
             foreach (User user in users)
             {
                 UserData userData = new UserData();
-                userData.ID = user.ID;
+                userData.ID = user.UserId;
                 userData.Name = user.Name;
                 usersData.Add(userData);
             }
@@ -147,26 +185,7 @@ namespace PuzzleUServices
                 errorString = "Failed retrieving AlbumsDataManager";
                 return false;
             }
-
-            if (!albumsDataMan.CreateAlbum(userID, albumName, out albumId, out errorString))
-                return false;
-
-            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
-            if (usersDataMan == null)
-            {
-                errorString = "Failed retrieving UsersDataManager";
-                return false;
-            }
-
-            List<Album> albums = null;
-            if (!albumsDataMan.GetAlbums(new List<int>() { albumId },out albums, out errorString) || 
-                albums == null || albums.Count != 1 || albums[0] == null)
-            {
-                errorString = "Faied adding album to user";
-                return false;
-            }
-
-            return usersDataMan.AddUserAlbum(userID, albums[0], out errorString);
+            return !albumsDataMan.CreateAlbum(userID, albumName, out albumId, out errorString);
         }
 
         public bool DeleteAlbum(int albumId, out string errorString)
@@ -181,16 +200,13 @@ namespace PuzzleUServices
             }
 
             if (!albumsDataMan.DeleteAlbum(albumId, out errorString))
-                return false;
-
-            IUsersDataManager usersDataMan = managersFactory.CreateUsersDataManagerr();
-            if (usersDataMan == null)
             {
-                errorString = "Failed retrieving UsersDataManager";
+                errorString = "Album doesn't exist";
                 return false;
             }
 
-            return usersDataMan.DeleteUserAlbum(albumId, out errorString);
+            errorString = "";
+            return true;
         }
 
         public bool GetAlbumID(int userId, string albumName, out int albumId, out string errorString)
@@ -234,12 +250,6 @@ namespace PuzzleUServices
                 return false;
             }
 
-            if (albumsDataMan.AlbumImageExists(albumId, imageFileData.ImageName))
-            {
-                errorString = "Image already exists in album";
-                return false;
-            }
-
             IImagesManager imagesMan = managersFactory.CreateImagesManager();
             if (imagesMan == null)
             {
@@ -254,27 +264,12 @@ namespace PuzzleUServices
                 return false;
             }
 
-            if (!albumsDataMan.AddAlbumImage(albumId, imageFileData.ImageName, url, out errorString))
-                return false;
-
+            errorString = "";
             return true;
         }
 
-        public bool DeleteImage(int albumId, string imageName, out string errorString)
+        public bool DeleteImage(int imageId, out string errorString)
         {
-            IAlbumsDataManager albumsDataMan = managersFactory.CreateAlbumsManager();
-            if (albumsDataMan == null)
-            {
-                errorString = "Failed retrieving AlbumsDataManager";
-                return false;
-            }
-
-            if (!albumsDataMan.AlbumImageExists(albumId, imageName))
-            {
-                errorString = "Image does not exists in album";
-                return false;
-            }
-
             IImagesManager imagesMan = managersFactory.CreateImagesManager();
             if (imagesMan == null)
             {
@@ -282,19 +277,16 @@ namespace PuzzleUServices
                 return false;
             }
 
-            if (!imagesMan.DeleteImage(albumId, imageName))
+            if (!imagesMan.DeleteImage(imageId))
             {
                 errorString = "Failed deleting image";
                 return false;
             }
-
-            if (!albumsDataMan.DeleteAlbumImage(albumId, imageName, out errorString))
-                return false;
-
+            errorString = "";
             return true;
         }
 
-        public bool GetAlbumImages(int iAlbumID, out List<string> images, out string errorString)
+        public bool GetAlbumImages(int iAlbumID, out List<int> images, out string errorString)
         {
             images = null;
             
@@ -311,7 +303,7 @@ namespace PuzzleUServices
             return true;
         }
 
-        public bool GetPuzzleData(int albumId, string imageName, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString)
+        public bool GetPuzzleData(int imageId, int iDifficultyLevel, out PuzzleData puzzleData, out string errorString)
         {
             puzzleData = null;
             errorString = string.Empty;
@@ -319,13 +311,13 @@ namespace PuzzleUServices
             puzzleData = new PuzzleData();
 
             ImageData imageData = null;
-            if (!GetImageData(albumId, imageName, out imageData, out errorString))
+            if (!GetImageData(imageId, out imageData, out errorString))
                 return false;
 
             puzzleData.ImageData = imageData;
 
             List<PuzzlePartData> puzzlePartsData = null;
-            if (!GetPuzzlePartsData(albumId, imageName, iDifficultyLevel, out puzzlePartsData, out errorString))
+            if (!GetPuzzlePartsData(imageId, iDifficultyLevel, out puzzlePartsData, out errorString))
                 return false;
 
             puzzleData.PuzzlePartData = puzzlePartsData;
@@ -333,13 +325,13 @@ namespace PuzzleUServices
             return true;
         }
 
-        private bool GetPuzzlePartsData(int albumId, string imageName, int iDifficultyLevel, out List<PuzzlePartData> puzzlePartsData, out string errorString)
+        private bool GetPuzzlePartsData(int imageId, int iDifficultyLevel, out List<PuzzlePartData> puzzlePartsData, out string errorString)
         {
             puzzlePartsData = new List<PuzzlePartData>();
             errorString = string.Empty;
 
             ImageData imageData = null;
-            if (!GetImageData(albumId, imageName, out imageData, out errorString))
+            if (!GetImageData( imageId, out imageData, out errorString))
                 return false;
 
             IPuzzlePartsManager puzzlePartsMan = managersFactory.CreatePuzzlePartsManager();
@@ -355,7 +347,7 @@ namespace PuzzleUServices
             return true;
         }
 
-        private bool GetImageData(int albumId, string imageName, out ImageData imageData, out string errorString)
+        private bool GetImageData(int imageid, out ImageData imageData, out string errorString)
         {
             imageData = new ImageData();
 
@@ -368,7 +360,7 @@ namespace PuzzleUServices
             }
 
             string URL = string.Empty;
-            if (!albumsDataMan.GetImageURL(albumId, imageName, out URL, out errorString))
+            if (!albumsDataMan.GetImageURL(imageid, out URL, out errorString))
                 return false;
 
             imageData.URL = URL;
@@ -380,13 +372,6 @@ namespace PuzzleUServices
             imageData.Width = image.Width;
 
             return true;
-        }
-
-        public void Save()
-        {
-            managersFactory.CreateUsersDataManagerr().Save();
-            managersFactory.CreateAlbumsManager().Save();
-            managersFactory.CreatePuzzlePartsManager().Save();
         }
 
         #region WebInvokes

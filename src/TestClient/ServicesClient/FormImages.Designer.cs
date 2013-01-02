@@ -45,11 +45,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBoxDeleteImageResult = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxDeleteImageAlbumID = new System.Windows.Forms.TextBox();
+            this.textBoxImageId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonDeleteImage = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxDeleteImageImageName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBoxAlbumImages.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -192,21 +190,19 @@
             // 
             this.groupBox2.Controls.Add(this.textBoxDeleteImageResult);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBoxDeleteImageAlbumID);
+            this.groupBox2.Controls.Add(this.textBoxImageId);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.buttonDeleteImage);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBoxDeleteImageImageName);
             this.groupBox2.Location = new System.Drawing.Point(21, 155);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(496, 126);
+            this.groupBox2.Size = new System.Drawing.Size(496, 93);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Delete Image";
             // 
             // textBoxDeleteImageResult
             // 
-            this.textBoxDeleteImageResult.Location = new System.Drawing.Point(192, 89);
+            this.textBoxDeleteImageResult.Location = new System.Drawing.Point(158, 53);
             this.textBoxDeleteImageResult.Name = "textBoxDeleteImageResult";
             this.textBoxDeleteImageResult.Size = new System.Drawing.Size(216, 20);
             this.textBoxDeleteImageResult.TabIndex = 6;
@@ -214,53 +210,37 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(146, 92);
+            this.label6.Location = new System.Drawing.Point(112, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Result:";
             // 
-            // textBoxDeleteImageAlbumID
+            // textBoxImageId
             // 
-            this.textBoxDeleteImageAlbumID.Location = new System.Drawing.Point(158, 22);
-            this.textBoxDeleteImageAlbumID.Name = "textBoxDeleteImageAlbumID";
-            this.textBoxDeleteImageAlbumID.Size = new System.Drawing.Size(89, 20);
-            this.textBoxDeleteImageAlbumID.TabIndex = 4;
+            this.textBoxImageId.Location = new System.Drawing.Point(158, 22);
+            this.textBoxImageId.Name = "textBoxImageId";
+            this.textBoxImageId.Size = new System.Drawing.Size(89, 20);
+            this.textBoxImageId.TabIndex = 4;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(15, 25);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 3;
-            this.label7.Text = "Album ID:";
+            this.label7.Text = "Image ID";
             // 
             // buttonDeleteImage
             // 
-            this.buttonDeleteImage.Location = new System.Drawing.Point(27, 87);
+            this.buttonDeleteImage.Location = new System.Drawing.Point(6, 50);
             this.buttonDeleteImage.Name = "buttonDeleteImage";
             this.buttonDeleteImage.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteImage.TabIndex = 2;
             this.buttonDeleteImage.Text = "Delete Image";
             this.buttonDeleteImage.UseVisualStyleBackColor = true;
             this.buttonDeleteImage.Click += new System.EventHandler(this.buttonDeleteImage_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 55);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Image Name (File name):";
-            // 
-            // textBoxDeleteImageImageName
-            // 
-            this.textBoxDeleteImageImageName.Location = new System.Drawing.Point(158, 52);
-            this.textBoxDeleteImageImageName.Name = "textBoxDeleteImageImageName";
-            this.textBoxDeleteImageImageName.Size = new System.Drawing.Size(170, 20);
-            this.textBoxDeleteImageImageName.TabIndex = 0;
             // 
             // FormImages
             // 
@@ -300,11 +280,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxDeleteImageResult;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxDeleteImageAlbumID;
+        private System.Windows.Forms.TextBox textBoxImageId;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonDeleteImage;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxDeleteImageImageName;
         private System.Windows.Forms.Button buttonAlbumImagesGet;
     }
 }

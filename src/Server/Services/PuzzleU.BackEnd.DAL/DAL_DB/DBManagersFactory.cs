@@ -10,22 +10,22 @@ namespace PuzzleU.BackEnd.DAL
 
         public override IAlbumsDataManager CreateAlbumsManager()
         {
-            throw new NotImplementedException();
+            return new DBAlbumsDataManager();
         }
 
         public override IImagesManager CreateImagesManager()
         {
-            throw new NotImplementedException();
+            return new DBImagesManager();
         }
 
         public override IPuzzlePartsManager CreatePuzzlePartsManager()
         {
-            throw new NotImplementedException();
+            return new DBPuzzlePartsManager();
         }
 
         public override IUsersDataManager CreateUsersDataManagerr()
         {
-            throw new NotImplementedException();
+            return new DBUsersDataManager();
         }
     }
 }
