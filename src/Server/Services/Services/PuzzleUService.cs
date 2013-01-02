@@ -13,6 +13,8 @@ using PuzzleU.BackEnd.ComonTypes;
 
 //Gamba
 
+#warning remove this freaking ugly C-Style error management method. In WCF and C# , error should be reported through exception. This comment is not only for the serve but also for the underlying DAL
+
 namespace PuzzleUServices
 {
     // kobig - This is not the way to go - we currently keep a singelton service and keep the data in memory
