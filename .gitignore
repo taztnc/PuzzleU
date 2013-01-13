@@ -10,3 +10,4 @@ src/Server/Services/HostForm/obj/x86/Release/DesignTimeResolveAssemblyReferences
 */Release/*
 *Services.suo
 *.suo
+*/bin/*
