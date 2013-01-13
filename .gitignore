@@ -9,3 +9,4 @@ src/*/Release/*
 src/Server/Services/HostForm/obj/x86/Release/DesignTimeResolveAssemblyReferencesInput.cache
 */Release/*
 *Services.suo
+*.suo
