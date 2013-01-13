@@ -19,7 +19,7 @@ namespace PuzzleU.BackEnd.DAL.DAL_DB
         }
         
 #warning yossim, connection string should be in a config file
-        protected PuzzleUDBContext() : base("Server=PC;Database=PuzzleUDB;Trusted_Connection=True;") { }
+        protected PuzzleUDBContext() : base("Server=localhost;Database=PuzzleUDB;Trusted_Connection=true;") { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Album> Albums { get; set; }

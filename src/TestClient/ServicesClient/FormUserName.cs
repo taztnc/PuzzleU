@@ -23,6 +23,7 @@ namespace ServicesClient
             var proxy = new PuzzleUService.PuzzleUServiceClient();
             int id = -1;
             string errorString = string.Empty;
+
             if (proxy.CreateUser(out id, out errorString, textBoxCreateUserName.Text))
                  this.textBoxCreateUserID.Text = id.ToString();
             else

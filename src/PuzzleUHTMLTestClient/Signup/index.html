@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="http://malsup.github.com/jquery.form.js"></script> 
  
-    <script> 
-	
-		function invokeService() {
-		
-		alert('here');
-				
-            $.ajax({
-                type: "POST",
-                async: false,
-                url: "http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/web/signup",
-                success: function (result) {
-                    AjaxSucceeded(result);
-                },
-                eror: AjaxFailed
-            });
-        }
-		
-        function AjaxSucceeded(result) {
-            alert(result);
-        }
-        function AjaxFailed(result) {
-            alert(result.status + '' + result.statusText);
-        }
-        
+    <script>
+//        // wait for the DOM to be loaded 
+//        $(document).ready(function () {
+//            // bind 'myForm' and provide a simple callback function 
+//            $('#myForm').ajaxForm(function () {
+//                success: function (responseText) {
+//                    alert(responseText);
+//                }
+//                error: function (err) {
+//                    alert("error");
+//                }
+
+//            });
+//        });
+
+
+        // wait for the DOM to be loaded 
         $(document).ready(function () {
-            invokeService();
-        });	
-     
-    </script> 
+            $('#myForm').ajaxForm({
+                success: function(responseText){
+                    alert(responseText);
+                }
+                error: function(err)
+                {
+                    alert("error");
+                }
+            });
+        }); 
+    </script>
+
 
 <title>Signup test client</title>
 
-
 </head>
 <body style="text-decoration:none">
-<!--
-<input type="button" value="Test" onclick="cb_func()" />
-<br>
 
-<form id="signup" name="signup" action="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/web/signup" method=POST enctype="text/plain">
-User name: <input type="text" name="uname" />
-<input type="submit" value="Submit" />
+<form id="myForm" action="http://localhost:8732/Design_Time_Addresses/Services/PuzzleUService/web/signup" method="post"> 
+    Name: <input type="text" name="name" /> 
+    <input type="submit" value="Submit Comment" /> 
 </form>
 
--->
 
 </body>
 </html>

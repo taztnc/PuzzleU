@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.microsoft.com/Message" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Message" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:simpleType name="StreamBody">
-    <xs:restriction base="xs:base64Binary" />
-  </xs:simpleType>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PuzzleUServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PuzzleUServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="LoginReposne">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginReposne" nillable="true" type="tns:LoginReposne" />
+  <xs:complexType name="SignupReposne">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="userId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignupReposne" nillable="true" type="tns:SignupReposne" />
 </xs:schema>

@@ -394,14 +394,62 @@ namespace PuzzleUServices
             }
         }
 
-        public string Singup(Stream streamContent)
+        
+
+        public Returned Signup(Stream streamContent)
         {
             byte[] data = ToByteArray(streamContent);
             string strContent = Encoding.UTF8.GetString(data);
 
-            return "from server";
+            Returned ans = new Returned();
+            ans.Name = "TestName";
+
+            return ans;
         }
 
+        public LoginReposne Login(string userName) // string userName)
+        {
+            LoginReposne ans = new LoginReposne();
+            ans.success = false;
+            ans.userId = -1;
+            ans.error = string.Empty;
+
+            string errstring = string.Empty;
+            int id;
+            if (GetUserID(userName, out id, out errstring))
+            {
+                ans.userId = id;
+                ans.success = true;
+            }
+            else
+            {
+                ans.error = errstring;
+            }
+            
+            return ans;
+        }
+
+        public SignupReposne Signup(string userName)
+        {
+            SignupReposne ans = new SignupReposne();
+            ans.success = false;
+            ans.userId = -1;
+            ans.error = string.Empty;
+
+            string errstring = string.Empty;
+            int id;
+            if (CreateUser(userName, out id, out errstring))
+            {
+                ans.userId = id;
+                ans.success = true;
+            }
+            else
+            {
+                ans.error = errstring;
+            }
+
+            return ans;
+        }
 
         #endregion
     }

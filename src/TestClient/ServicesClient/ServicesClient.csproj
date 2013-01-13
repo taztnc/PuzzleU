@@ -147,7 +147,13 @@
     <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.AlbumData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.LoginReposne.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.PuzzleData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.SignupReposne.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PuzzleUService\ServicesClient.PuzzleUService.UserData.datasource">
@@ -159,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\PuzzleUService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PuzzleUService\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\PuzzleUService\configuration91.svcinfo" />

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+    <script src="common.js"></script> 
+
+ 
+    <script>
+        // wait for the DOM to be loaded
+        $(document).ready(function () {
+            $(document).ready(function () {
+                // bind 'loginForm' and provide a callback function 
+                $('#loginForm').ajaxForm(function (response) {
+                    if (response.success) {
+                        setUserId(response.userId);
+                        showUserAlbumsPage();
+                    }
+                    else {
+                        displayErrorPage(response.error);
+                    }
+                });
+            });
+        }); 
+    </script>
+
+    <script>
+
+        function signupButtonClick() {
+            showSignupPage();
+        };
+        
+    </script>
+
+<title>Login Signup page</title>
+
+</head>
+<body style="text-decoration:none">
+
+<h1>Login Signup page</h1>
+
+<!-- Display a form user login -->
+<form id="loginForm" action="http://localhost:8000/PuzzleUService.svc/web/login" method="get">
+    Username: <input type="text" name="userName" />
+    <input type="submit" value="Login" /> 
+</form>
+
+<br />
+
+Still haven't signed up? Signup now for free:
+
+<input type="button" value="Signup" onclick="signupButtonClick()" />
+
+</body>
+</html>

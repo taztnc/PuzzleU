@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="common.js"></script> 
+
+
+    <script>
+        // wait for the DOM to be loaded
+        $(document).ready(function () {
+
+            var ret = getUserId();
+            if (ret != -1) {
+                window.userId = ret;
+                showUserAlbumsPage();
+            }
+            else {
+                showLoginSignupPage();
+            }
+        }); 
+    </script>
+
+
+<title>Test album master client</title>
+
+</head>
+<body style="text-decoration:none">
+
+</body>
+</html>

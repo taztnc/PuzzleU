@@ -21,7 +21,7 @@ namespace PuzzleUServices
     {
         // kobig - move this to the other interface ??
         //[OperationContract, WebInvoke(Method = "POST", UriTemplate = "Signup", BodyStyle = WebMessageBodyStyle.Bare)]
-        //string Singup(Stream contents);
+        //string Signup(Stream contents);
 
 
         //USER OPERATIONS -------------------------------------------------------------
