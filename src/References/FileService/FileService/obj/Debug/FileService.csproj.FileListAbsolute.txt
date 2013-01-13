@@ -1,6 +1,0 @@
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\FileService\bin\Debug\FileService.dll.config
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\FileService\bin\Debug\FileService.dll
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\FileService\bin\Debug\FileService.pdb
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\FileService\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\FileService\obj\Debug\FileService.dll
-C:\Users\Kobi.Garyani\documents\visual studio 2010\Projects\FileService\FileService\obj\Debug\FileService.pdb
