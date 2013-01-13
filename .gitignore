@@ -6,3 +6,13 @@
 */obj/*
 *.suo
 */bin/*
+src/WebSite/bin/HostForm.pdb
+*/bin/*
+src/WebSite/bin/HostForm.exe
+/bin/
+src/WebSite/bin/PuzzleU.BackEnd.ComonTypes.dll
+src/WebSite/bin/PuzzleU.BackEnd.ComonTypes.pdb
+src/WebSite/bin/PuzzleU.BackEnd.DAL.dll
+src/WebSite/bin/PuzzleU.BackEnd.DAL.pdb
+src/WebSite/bin/Services.dll
+src/WebSite/bin/Services.pdb
