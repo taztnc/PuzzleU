@@ -3,11 +3,6 @@
 [Re]e;ease*/
 *.bak
 *.suo
-src/*/obj/*
-src/*/Release/*
-src/*/Release/*
-src/Server/Services/HostForm/obj/x86/Release/DesignTimeResolveAssemblyReferencesInput.cache
-*/Release/*
-*Services.suo
+*/obj/*
 *.suo
 */bin/*
